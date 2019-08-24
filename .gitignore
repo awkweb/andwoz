@@ -1,0 +1,12 @@
+# Dependency directories
+node_modules/
+
+# eslint cache
+.eslintcache
+
+# next.js build output
+.next
+next-env.d.ts
+
+# production server output
+dist

@@ -1,0 +1,54 @@
+{
+    "name": "andwoz",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start",
+        "deploy": "now",
+        "lint": "eslint --max-warnings 0 --cache --ignore-pattern !.*rc.js"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "prettier --write",
+            "eslint --max-warnings 0 --cache",
+            "git add"
+        ]
+    },
+    "dependencies": {
+        "@zeit/next-css": "^1.0.1",
+        "next": "^9.0.0",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "sanitize.css": "^10.0.0",
+        "styled-components": "^4.3.2"
+    },
+    "devDependencies": {
+        "@types/next": "^8.0.5",
+        "@types/node": "^12.7.2",
+        "@types/react": "^16.8.22",
+        "@types/react-dom": "^16.8.4",
+        "@types/styled-components": "^4.1.18",
+        "@typescript-eslint/eslint-plugin": "^1.11.0",
+        "@typescript-eslint/parser": "^1.11.0",
+        "babel-plugin-styled-components": "^1.10.3",
+        "eslint": "^6.0.1",
+        "eslint-config-prettier": "^6.0.0",
+        "eslint-plugin-import": "^2.18.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-react": "^7.14.2",
+        "eslint-plugin-react-hooks": "^1.6.1",
+        "husky": "^2.7.0",
+        "lint-staged": "^8.2.1",
+        "prettier": "^1.18.2",
+        "typescript": "^3.5.2",
+        "typescript-styled-plugin": "^0.14.0"
+    },
+    "license": "MIT"
+}
