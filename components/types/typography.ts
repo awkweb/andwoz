@@ -10,6 +10,7 @@ export enum Font {
 }
 
 export enum Size {
+    Root = 'root',
     Xxs = 'xxs',
     Xs = 'xs',
     Sm = 'sm',

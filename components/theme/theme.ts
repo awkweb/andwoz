@@ -1,15 +1,12 @@
-import { createGlobalStyle } from 'styled-components'
-
 import { Theme } from 'styled-system'
+
+import { toRemString, typeScaleRoot } from '~/lib/toRemString'
 
 import { Breakpoint } from '../types/responsive'
 import { Color } from '../types/color'
 import { Size } from '../types/size'
 import * as Border from '../types/border'
 import * as Text from '../types/typography'
-
-const typeScaleRoot = 16
-const toRemString = px => `${px / typeScaleRoot}rem`
 
 const borderStyles = {
     [Border.Style.None]: 'none',
@@ -50,6 +47,7 @@ const fonts = {
     [Text.Font.Title]: 'Archivo, sans-serif',
 }
 const fontSizes = {
+    [Text.Size.Root]: `${typeScaleRoot}px`,
     [Text.Size.Xxs]: toRemString(12),
     [Text.Size.Xs]: toRemString(14),
     [Text.Size.Sm]: toRemString(16),
@@ -77,6 +75,7 @@ const space = [
     toRemString(8),
     toRemString(12),
     toRemString(16),
+    toRemString(20),
     toRemString(24),
     toRemString(32),
     toRemString(48),
@@ -106,23 +105,4 @@ const theme: Theme = {
     zIndices,
 }
 
-const GlobalStyle = createGlobalStyle`
-    ::selection {
-        background-color: ${props =>
-            (props.theme as Theme).colors[Color.Foreground]};
-        color: ${props => (props.theme as Theme).colors[Color.Background]};
-    }
-    html {
-        font-size: ${typeScaleRoot}px;
-    }
-    body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        background-color: ${props =>
-            (props.theme as Theme).colors[Color.Background]};
-        color: ${props => (props.theme as Theme).colors[Color.Foreground]};
-        text-rendering: optimizeLegibility;
-    }
-`
-
-export { theme, GlobalStyle }
+export default theme

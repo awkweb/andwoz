@@ -3,6 +3,7 @@ import { NextPage } from 'next'
 // eslint-disable-next-line import/no-unresolved
 import Link from 'next/link'
 
+import { toRemString } from '~/lib/toRemString'
 import { Box, Text } from '~/components'
 import AppContext from '~/store/AppContext'
 
@@ -19,23 +20,27 @@ const Home: NextPage<Props> = () => {
     const handleSubmit = (event: FormEvent) => event.preventDefault()
     return (
         <>
-            <Text
-                el={Text.Element.H1}
-                fontFamily={Text.Font.Title}
-                fontSize={Text.Size.Xxxl}
-                fontWeight={Text.Weight.Bold}
-                lineHeight={1}
-            >
-                Find a collaborator to build things together.
-            </Text>
-            <Text
-                color={Text.Color.Primary5}
-                fontSize={Text.Size.Lg}
-                lineHeight="130%"
-            >
-                &amp;Woz is a community of vetted designers and engineers
-                looking to find partners to do the best work of their life.
-            </Text>
+            <Box maxWidth={toRemString(400)} mb={5}>
+                <Text
+                    el={Text.Element.H1}
+                    fontFamily={Text.Font.Title}
+                    fontSize={Text.Size.Xxxl}
+                    fontWeight={Text.Weight.Bold}
+                    lineHeight={1}
+                >
+                    Find a collaborator to build things together.
+                </Text>
+            </Box>
+            <Box maxWidth={toRemString(400)} mb={8}>
+                <Text
+                    color={Text.Color.Primary5}
+                    fontSize={Text.Size.Lg}
+                    lineHeight={1.3}
+                >
+                    &amp;Woz is a community of vetted designers and engineers
+                    looking to find partners to do the best work of their life.
+                </Text>
+            </Box>
             <Box el={Box.Element.Form} onSubmit={handleSubmit}>
                 <input
                     type="text"

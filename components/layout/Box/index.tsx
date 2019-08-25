@@ -1,8 +1,8 @@
 import React, { FormEvent, ReactNode } from 'react'
-import styled, { css } from 'styled-components'
+import styled from '@emotion/styled'
 import {
     border,
-    color, // backgroundColor
+    color,
     display,
     flexbox,
     layout,
@@ -18,6 +18,7 @@ import {
     SpaceProps,
     BorderProps,
 } from 'styled-system'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 
 import { Align as _Align } from '../../types/typography'
 import { Box as _Element } from '../../types/element'
@@ -41,22 +42,12 @@ interface Props
     onSubmit?: (e: FormEvent<HTMLElement>) => void
 }
 
-export const Box = ({ el, ...props }: Props) => {
-    switch (el) {
-        case _Element.Footer:
-            return <Footer {...props} />
-        case _Element.Form:
-            return <Form {...props} />
-        case _Element.Header:
-            return <Header {...props} />
-        case _Element.Nav:
-            return <Nav {...props} />
-        case _Element.Section:
-            return <Section {...props} />
-        case _Element.Div:
-        default:
-            return <Div {...props} />
-    }
+export const Box = ({ el, children, ...props }: Props) => {
+    return (
+        <Styled as={el} {...props}>
+            {children}
+        </Styled>
+    )
 }
 
 Box.defaultProps = {
@@ -77,32 +68,6 @@ Box.JustifyContent = _Flexbox.JustifyContent
 Box.Position = _Position.Position
 Box.TextAlign = _Align
 
-const styles = css`
-    ${border}
-    ${color}
-    ${display}
-    ${flexbox}
-    ${layout}
-    ${position}
-    ${space}
-    ${textAlign}
-`
-
-const Footer = styled.footer`
-    ${styles}
-`
-const Form = styled.form`
-    ${styles}
-`
-const Header = styled.header`
-    ${styles}
-`
-const Nav = styled.nav`
-    ${styles}
-`
-const Section = styled.section`
-    ${styles}
-`
-const Div = styled.div`
-    ${styles}
-`
+const Styled = styled('div', {
+    shouldForwardProp,
+})(border, color, display, flexbox, layout, position, space, textAlign)
