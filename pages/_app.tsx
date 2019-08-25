@@ -1,23 +1,25 @@
 import React from 'react'
-import { Container } from 'next/app'
 
 import 'sanitize.css'
 import 'sanitize.css/typography.css'
 import 'sanitize.css/forms.css'
+import '~/static/styles/fonts.css'
 
 import { ThemeProvider } from 'styled-components'
 
 import { AppProvider } from '~/store/AppContext'
+import { theme, GlobalStyle } from '~/components'
 
 const App = ({ Component, pageProps }) => {
     return (
-        <Container>
-            <ThemeProvider theme={{}}>
+        <ThemeProvider theme={theme}>
+            <>
+                <GlobalStyle />
                 <AppProvider>
                     <Component {...pageProps} />
                 </AppProvider>
-            </ThemeProvider>
-        </Container>
+            </>
+        </ThemeProvider>
     )
 }
 

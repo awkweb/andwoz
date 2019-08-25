@@ -1,15 +1,15 @@
 {
     "compilerOptions": {
-        "allowJs": true /* Allow JavaScript files to be type checked. */,
+        "allowJs": true,
         "baseUrl": "./",
-        "esModuleInterop": true /* matches compilation setting */,
+        "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "isolatedModules": true /* to match webpack loader */,
-        "jsx": "preserve" /* Preserves jsx outside of Next.js. */,
-        "lib": ["dom", "dom.iterable", "esnext"] /* List of library files to be included in the type checking. */,
-        "module": "esnext" /* Specifies the type of module to type check. */,
-        "moduleResolution": "node" /* Determine how modules get resolved. */,
-        "noEmit": true /* Do not emit outputs. Makes sure tsc only does type checking. */,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noEmit": true,
         "paths": {
             "~/*": ["*"]
         },
@@ -20,9 +20,9 @@
         ],
         "resolveJsonModule": true,
         "skipLibCheck": true,
-        "strict": false /* Enable all strict type-checking options. */,
-        "target": "esnext" /* The type checking input. */
+        "strict": false,
+        "target": "es5"
     },
     "exclude": ["node_modules"],
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "store/app-context.js"]
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

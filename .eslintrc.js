@@ -1,5 +1,4 @@
 module.exports = {
-    // Specifies the ESLint parser
     parser: '@typescript-eslint/parser',
     parserOptions: {
         // Allows for the use of imports
@@ -49,7 +48,7 @@ module.exports = {
     settings: {
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+                extensions: ['.ts', '.tsx'],
             },
         },
         react: {

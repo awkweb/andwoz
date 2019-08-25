@@ -1,11 +1,6 @@
 import { createContext, useState } from 'react'
 
-interface Props {
-    email: string
-    setEmail: Function
-}
-
-const AppContext = createContext<Props>(null)
+const AppContext = createContext(null)
 const { Consumer, Provider } = AppContext
 
 const AppProvider = ({ children }) => {

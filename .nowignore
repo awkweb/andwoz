@@ -2,7 +2,6 @@
 .eslintrc.js
 .gitignore
 .next
-.prettierignore
 .prettierrc.js
 .vscode
 LICENSE

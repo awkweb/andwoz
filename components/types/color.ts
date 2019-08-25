@@ -1,0 +1,15 @@
+export enum Color {
+    Foreground = 'foreground',
+    Primary8 = 'primary8',
+    Primary7 = 'primary7',
+    Primary6 = 'primary6',
+    Primary5 = 'primary5',
+    Primary4 = 'primary4',
+    Primary3 = 'primary3',
+    Primary2 = 'primary2',
+    Primary1 = 'primary1',
+    Background = 'background',
+    Error = 'error',
+    Success = 'success',
+    Warning = 'warning',
+}
