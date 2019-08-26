@@ -1,10 +1,10 @@
-import { useContext, FormEvent, ChangeEvent } from 'react'
+import { useContext, FormEvent, ChangeEvent, useState } from 'react'
 import { NextPage } from 'next'
 // eslint-disable-next-line import/no-unresolved
 import Link from 'next/link'
 
 import { toRemString } from '~/lib/toRemString'
-import { Box, Text } from '~/components'
+import { Box, Text, Button } from '~/components'
 import AppContext from '~/store/AppContext'
 
 interface Props {}
@@ -18,6 +18,13 @@ const Home: NextPage<Props> = () => {
         setEmail(value)
     }
     const handleSubmit = (event: FormEvent) => event.preventDefault()
+
+    const [isLoading, setIsLoading] = useState(false)
+    const handleClick = () => {
+        setIsLoading(true)
+        setTimeout(() => setIsLoading(false), 1000)
+    }
+
     return (
         <Box
             alignItems={Box.AlignItems.Center}
@@ -57,6 +64,27 @@ const Home: NextPage<Props> = () => {
                             Join
                         </button>
                     </Link>
+                    <Box ml={5}>
+                        <Box mb={2} mt={5}>
+                            <Button
+                                block
+                                fluid
+                                isLoading={isLoading}
+                                onClick={handleClick}
+                            >
+                                Sign Up
+                            </Button>
+                        </Box>
+                        <Button
+                            block
+                            fluid
+                            isLoading={isLoading}
+                            variant={Button.Variant.Secondary}
+                            onClick={handleClick}
+                        >
+                            Sign Up
+                        </Button>
+                    </Box>
                 </Box>
             </Box>
         </Box>

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import styled from '@emotion/styled'
 import {
     color,
@@ -55,16 +55,16 @@ Text.Weight = _Typography.Weight
 Text.Variant = _Variant
 
 const variants = {
-    h1: {
-        fontFamily: Text.Font.Title,
-        fontSize: Text.Size.Xxxl,
-        fontWeight: Text.Weight.Bold,
-        lineHeight: Text.LineHeight.Title,
+    [Text.Variant.H1]: {
+        fontFamily: _Typography.Font.Title,
+        fontSize: _Typography.Size.Xxxl,
+        fontWeight: _Typography.Weight.Bold,
+        lineHeight: _Typography.LineHeight.Title,
     },
-    lead: {
-        color: Text.Color.Primary5,
-        fontSize: Text.Size.Lg,
-        lineHeight: Text.LineHeight.Body,
+    [Text.Variant.Lead]: {
+        color: _Color.Primary5,
+        fontSize: _Typography.Size.Lg,
+        lineHeight: _Typography.LineHeight.Body,
     },
 }
 

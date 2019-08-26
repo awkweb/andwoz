@@ -6,7 +6,7 @@ import { Breakpoint } from '../types/responsive'
 import { Color } from '../types/color'
 import { Size } from '../types/size'
 import * as Border from '../types/border'
-import * as Text from '../types/typography'
+import * as Typography from '../types/typography'
 
 const borderStyles = {
     [Border.Style.None]: 'none',
@@ -42,28 +42,29 @@ const colors = {
     [Color.Warning]: 'hsl(38, 100%, 61%)',
 }
 const fonts = {
-    [Text.Font.Body]:
+    [Typography.Font.Body]:
         'system-ui, /* macOS 10.11-10.12 */ -apple-system, /* Windows 6+ */ "Segoe UI", /* Android 4+ */ "Roboto", /* Ubuntu 10.10+ */ "Ubuntu", /* Gnome 3+ */ "Cantarell", /* KDE Plasma 5+ */ "Noto Sans", /* fallback */ sans-serif, /* macOS emoji */ "Apple Color Emoji", /* Windows emoji */ "Segoe UI Emoji", /* Windows emoji */ "Segoe UI Symbol", /* Linux emoji */ "Noto Color Emoji";',
-    [Text.Font.Title]: 'Archivo, sans-serif',
+    [Typography.Font.Title]: 'Archivo, sans-serif',
 }
 const fontSizes = {
-    [Text.Size.Root]: `${typeScaleRoot}px`,
-    [Text.Size.Xxs]: toRemString(12),
-    [Text.Size.Xs]: toRemString(14),
-    [Text.Size.Sm]: toRemString(16),
-    [Text.Size.Md]: toRemString(18),
-    [Text.Size.Lg]: toRemString(20),
-    [Text.Size.Xl]: toRemString(24),
-    [Text.Size.Xxl]: toRemString(30),
-    [Text.Size.Xxxl]: toRemString(36),
+    [Typography.Size.Root]: `${typeScaleRoot}px`,
+    [Typography.Size.Xxs]: toRemString(12),
+    [Typography.Size.Xs]: toRemString(14),
+    [Typography.Size.Sm]: toRemString(16),
+    [Typography.Size.Md]: toRemString(18),
+    [Typography.Size.Lg]: toRemString(20),
+    [Typography.Size.Xl]: toRemString(24),
+    [Typography.Size.Xxl]: toRemString(30),
+    [Typography.Size.Xxxl]: toRemString(36),
 }
 const fontWeights = {
-    [Text.Weight.Bold]: 700,
-    [Text.Weight.Normal]: 400,
+    [Typography.Weight.Bold]: 700,
+    [Typography.Weight.SemiBold]: 600,
+    [Typography.Weight.Normal]: 400,
 }
 const lineHeights = {
-    [Text.LineHeight.Body]: 1.3,
-    [Text.LineHeight.Title]: 1.08,
+    [Typography.LineHeight.Body]: 1.3,
+    [Typography.LineHeight.Title]: 1.08,
 }
 const radii = {
     [Border.Radius.None]: 0,
