@@ -9,6 +9,11 @@ export enum Font {
     Title = 'title',
 }
 
+export enum LineHeight {
+    Body = 'body',
+    Title = 'title',
+}
+
 export enum Size {
     Root = 'root',
     Xxs = 'xxs',

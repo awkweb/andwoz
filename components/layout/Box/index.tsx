@@ -24,6 +24,7 @@ import { Align as _Align } from '../../types/typography'
 import { Box as _Element } from '../../types/element'
 import { Color as _Color } from '../../types/color'
 import { Display as _Display } from '../../types/layout'
+import { Size as _Size } from '../../types/size'
 import * as _Border from '../../types/border'
 import * as _Flexbox from '../../types/flexbox'
 import * as _Position from '../../types/position'
@@ -66,6 +67,7 @@ Box.FlexDirection = _Flexbox.FlexDirection
 Box.FlexWrap = _Flexbox.FlexWrap
 Box.JustifyContent = _Flexbox.JustifyContent
 Box.Position = _Position.Position
+Box.Size = _Size
 Box.TextAlign = _Align
 
 const Styled = styled('div', {

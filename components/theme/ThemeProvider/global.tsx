@@ -17,6 +17,7 @@ export const GlobalStyles = () => (
                 -moz-osx-font-smoothing: grayscale;
                 background-color: ${theme.colors.background};
                 color: ${theme.colors.foreground};
+                min-height: 100vh;
                 text-rendering: optimizeLegibility;
             }
         `}

@@ -61,6 +61,10 @@ const fontWeights = {
     [Text.Weight.Bold]: 700,
     [Text.Weight.Normal]: 400,
 }
+const lineHeights = {
+    [Text.LineHeight.Body]: 1.3,
+    [Text.LineHeight.Title]: 1.08,
+}
 const radii = {
     [Border.Radius.None]: 0,
     [Border.Radius.Small]: 2,
@@ -68,6 +72,8 @@ const radii = {
 const sizes = {
     [Size.Button]: toRemString(48),
     [Size.Field]: toRemString(48),
+    [Size.ContainerX]: toRemString(1024),
+    [Size.ContainerY]: '100vh',
 }
 const space = [
     toRemString(0),
@@ -99,6 +105,7 @@ const theme: Theme = {
     fonts,
     fontSizes,
     fontWeights,
+    lineHeights,
     radii,
     sizes,
     space,
