@@ -42,7 +42,7 @@
         "@types/styled-system": "^5.1.1",
         "@typescript-eslint/eslint-plugin": "^2.0.0",
         "@typescript-eslint/parser": "^2.0.0",
-        "docz": "^2.0.0-rc.5",
+        "docz": "^1.2.0",
         "eslint": "^6.0.1",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-import": "^2.18.0",

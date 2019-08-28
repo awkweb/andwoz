@@ -113,4 +113,4 @@ const theme: Theme = {
     zIndices,
 }
 
-export default theme
+export { theme }
