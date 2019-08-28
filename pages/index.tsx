@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 
 import { toRemString } from '~/lib/toRemString'
-import { Box, Text, Button } from '~/components'
+import { Box, Text, Button, Field } from '~/components'
 import AppContext from '~/store/AppContext'
 
 interface Props {}
@@ -29,7 +29,7 @@ const Home: NextPage<Props> = () => {
         <Box
             alignItems={Box.AlignItems.Center}
             display={Box.Display.Flex}
-            height={Box.Size.ContainerY}
+            fluidHeight
             maxWidth={Box.Size.ContainerX}
             mx="auto"
             pb={10}
@@ -47,13 +47,20 @@ const Home: NextPage<Props> = () => {
                         of their life.
                     </Text>
                 </Box>
-                <Box el={Box.Element.Form} onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        placeholder="email@address.com"
-                        value={email}
-                        onChange={handleChange}
-                    />
+                <Box
+                    el={Box.Element.Form}
+                    ml={5}
+                    mb={5}
+                    onSubmit={handleSubmit}
+                >
+                    <Box mb={2}>
+                        <Field
+                            label="Email"
+                            value={email}
+                            onChange={handleChange}
+                            type={Field.Type.Text}
+                        />
+                    </Box>
                     <Link
                         href={{
                             pathname: '/register',
@@ -64,27 +71,27 @@ const Home: NextPage<Props> = () => {
                             Join
                         </button>
                     </Link>
-                    <Box ml={5}>
-                        <Box mb={2} mt={5}>
-                            <Button
-                                block
-                                fluid
-                                isLoading={isLoading}
-                                onClick={handleClick}
-                            >
-                                Sign Up
-                            </Button>
-                        </Box>
+                    <Box mb={2} mt={5}>
                         <Button
                             block
+                            disabled={isLoading}
                             fluid
                             isLoading={isLoading}
-                            variant={Button.Variant.Secondary}
                             onClick={handleClick}
                         >
                             Sign Up
                         </Button>
                     </Box>
+                    <Button
+                        block
+                        disabled={isLoading}
+                        fluid
+                        isLoading={isLoading}
+                        variant={Button.Variant.Secondary}
+                        onClick={handleClick}
+                    >
+                        Sign Up
+                    </Button>
                 </Box>
             </Box>
         </Box>

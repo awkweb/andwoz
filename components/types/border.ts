@@ -1,6 +1,7 @@
 export enum Radius {
     None = 'none',
     Small = 'small',
+    Circle = 'circle',
 }
 
 export enum Style {

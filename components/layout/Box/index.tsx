@@ -1,4 +1,4 @@
-import React, { FormEvent, ReactNode } from 'react'
+import { FormEvent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import {
     border,
@@ -17,19 +17,21 @@ import {
     LayoutProps,
     SpaceProps,
     BorderProps,
+    compose,
 } from 'styled-system'
+import css from '@styled-system/css'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import { Align as _Align } from '../../types/typography'
-import { Box as _Element } from '../../types/element'
-import { Color as _Color } from '../../types/color'
-import { Display as _Display } from '../../types/layout'
-import { Size as _Size } from '../../types/size'
 import * as _Border from '../../types/border'
+import * as _Color from '../../types/color'
+import * as _Element from '../../types/element'
 import * as _Flexbox from '../../types/flexbox'
+import * as _Layout from '../../types/layout'
 import * as _Position from '../../types/position'
+import * as _Size from '../../types/size'
+import * as _Typography from '../../types/typography'
 
-interface Props
+interface StyledProps
     extends BackgroundColorProps,
         BorderProps,
         DisplayProps,
@@ -39,37 +41,55 @@ interface Props
         SpaceProps,
         TextAlignProps {
     children?: ReactNode
-    el?: _Element
+    fluidHeight: boolean
+    fluidWidth: boolean
     onSubmit?: (e: FormEvent<HTMLElement>) => void
 }
 
-export const Box = ({ el, children, ...props }: Props) => {
-    return (
-        <Styled as={el} {...props}>
-            {children}
-        </Styled>
-    )
+interface Props extends StyledProps {
+    el?: _Element.Box
 }
 
+const StyledDiv = styled('div', {
+    shouldForwardProp,
+})(
+    (props: StyledProps) =>
+        css({
+            height: props.fluidHeight ? '100%' : null,
+            width: props.fluidWidth ? '100%' : null,
+        }),
+    compose(
+        border,
+        color,
+        display,
+        flexbox,
+        layout,
+        position,
+        space,
+        textAlign,
+    ),
+)
+
+export const Box = ({ el, ...props }: Props) => <StyledDiv as={el} {...props} />
+
 Box.defaultProps = {
-    el: _Element.Div,
+    el: _Element.Box.Div,
+    fluidHeight: false,
+    fluidWidth: false,
 }
 
 Box.AlignItems = _Flexbox.AlignItems
-Box.BackgroundColor = _Color
-Box.BorderColor = _Color
+Box.BackgroundColor = _Color.Color
+Box.BorderColor = _Color.Color
 Box.BorderRadius = _Border.Radius
 Box.BorderStyle = _Border.Style
 Box.BorderWidth = _Border.Width
-Box.Display = _Display
-Box.Element = _Element
+Box.Display = _Layout.Display
+Box.Element = _Element.Box
 Box.FlexDirection = _Flexbox.FlexDirection
 Box.FlexWrap = _Flexbox.FlexWrap
 Box.JustifyContent = _Flexbox.JustifyContent
 Box.Position = _Position.Position
-Box.Size = _Size
-Box.TextAlign = _Align
-
-const Styled = styled('div', {
-    shouldForwardProp,
-})(border, color, display, flexbox, layout, position, space, textAlign)
+Box.Size = _Size.Size
+Box.TextAlign = _Typography.Align
+Box.ZIndex = _Position.ZIndex

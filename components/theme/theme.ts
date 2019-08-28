@@ -4,7 +4,9 @@ import { toRemString, typeScaleRoot } from '~/lib/toRemString'
 
 import { Breakpoint } from '../types/responsive'
 import { Color } from '../types/color'
+import { BoxShadow } from '../types/shadow'
 import { Size } from '../types/size'
+import { ZIndex } from '../types/position'
 import * as Border from '../types/border'
 import * as Typography from '../types/typography'
 
@@ -69,12 +71,15 @@ const lineHeights = {
 const radii = {
     [Border.Radius.None]: 0,
     [Border.Radius.Small]: 2,
+    [Border.Radius.Circle]: '50%',
+}
+const shadows = {
+    [BoxShadow.Button]: '0 0 0 0.2em rgba(0,0,0,.4)',
 }
 const sizes = {
     [Size.Button]: toRemString(48),
     [Size.Field]: toRemString(48),
     [Size.ContainerX]: toRemString(1024),
-    [Size.ContainerY]: '100vh',
 }
 const space = [
     toRemString(0),
@@ -96,7 +101,13 @@ const space = [
     toRemString(640),
     toRemString(768),
 ]
-const zIndices = [0, 10, 100, 1000]
+const zIndices = [
+    ZIndex.Lowest,
+    ZIndex.Zero,
+    ZIndex.High,
+    ZIndex.Higher,
+    ZIndex.Highest,
+]
 
 const theme: Theme = {
     borderStyles,
@@ -108,6 +119,7 @@ const theme: Theme = {
     fontWeights,
     lineHeights,
     radii,
+    shadows,
     sizes,
     space,
     zIndices,

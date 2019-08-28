@@ -20,6 +20,10 @@ export const GlobalStyles = () => (
                 min-height: 100vh;
                 text-rendering: optimizeLegibility;
             }
+            #__next {
+                height: 100vh;
+                min-height: 100vh;
+            }
         `}
     />
 )

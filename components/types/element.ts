@@ -1,6 +1,7 @@
 export enum Box {
     Div = 'div',
     Footer = 'footer',
+    Fieldset = 'fieldset',
     Form = 'form',
     Header = 'header',
     Nav = 'nav',

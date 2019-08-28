@@ -1,27 +1,30 @@
 import { ReactNode, MouseEvent } from 'react'
 import styled from '@emotion/styled'
+import css from '@styled-system/css'
 import {
     border,
     color,
     layout,
     position,
+    shadow,
     space,
     typography,
     variant,
+    compose,
 } from 'styled-system'
-import shouldForwardProp from '@styled-system/should-forward-prop'
-
-import css from '@emotion/css'
 
 import { Box } from '../../layout/Box'
-import { Button as _Variant } from '../../types/variant'
-import { Color as _Color } from '../../types/color'
-import { Display as _Display } from '../../types/layout'
-import { Position as _Position } from '../../types/position'
-import { Size as _Size } from '../../types/size'
+import * as _Attribute from '../../types/attribute'
 import * as _Border from '../../types/border'
-import * as _Button from '../../types/button'
+import * as _Color from '../../types/color'
+import * as _Layout from '../../types/layout'
+import * as _Position from '../../types/position'
+import * as _Shadow from '../../types/shadow'
+import * as _Size from '../../types/size'
 import * as _Typography from '../../types/typography'
+import * as _Variant from '../../types/variant'
+
+import variants from './variants'
 
 interface Props {
     block: boolean
@@ -30,46 +33,78 @@ interface Props {
     fluid: boolean
     isLoading: boolean
     onClick?: ((e: MouseEvent<HTMLElement>) => void) | boolean
-    type: _Button.Type
-    variant?: _Variant
+    type: _Attribute.ButtonType
+    variant?: _Variant.Button
 }
 
-export const Button = ({ children, isLoading, onClick, ...props }: Props) => {
+const StyledButton = styled('button')(
+    (props: Props) =>
+        css({
+            display: props.block
+                ? _Layout.Display.Block
+                : _Layout.Display.InlineBlock,
+            opacity: props.disabled ? 0.65 : null,
+            pointerEvents: props.disabled ? 'none' : null,
+            textAlign: props.fluid
+                ? _Typography.Align.Left
+                : _Typography.Align.Center,
+            width: props.fluid ? '100% !important' : null,
+        }),
+    compose(
+        border,
+        color,
+        layout,
+        position,
+        shadow,
+        space,
+        typography,
+    ),
+    variant({
+        variants,
+    }),
+)
+
+export const Button = ({ children, onClick, ...props }: Props) => {
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
         if (onClick && typeof onClick === 'function') {
             onClick(e)
         }
     }
-    const loadingContents = (
+    const { isLoading } = props
+    const loadingContent = (
         <Box
             alignItems={Box.AlignItems.Center}
             display={Box.Display.Flex}
             flexDirection={Box.FlexDirection.Column}
-            height="100%"
+            fluidHeight
+            fluidWidth
             justifyContent={Box.JustifyContent.Center}
             left={0}
             position={Box.Position.Absolute}
             top={0}
-            width="100%"
-            zIndex={3}
+            zIndex={Box.ZIndex.Highest}
         >
-            <LoadingSpinner />
+            <Box
+                css={loaderCSS()}
+                borderRadius={Box.BorderRadius.Circle}
+                display={Box.Display.Block}
+                height="1rem"
+                left="50%"
+                ml="-0.5rem"
+                mt="-0.5rem"
+                position={Box.Position.Absolute}
+                top="50%"
+                width="1rem"
+                zIndex={Box.ZIndex.Higher}
+            />
         </Box>
     )
-    const content = (
-        <Box
-            css={css`
-                visibility: ${isLoading ? 'hidden' : 'visible'};
-            `}
-        >
-            {children}
-        </Box>
-    )
+    const content = <Box css={contentCSS(isLoading)}>{children}</Box>
     return (
-        <Styled onClick={handleClick} {...props}>
-            {isLoading ? loadingContents : null}
+        <StyledButton onClick={handleClick} {...props}>
+            {isLoading ? loadingContent : null}
             {content}
-        </Styled>
+        </StyledButton>
     )
 }
 
@@ -78,86 +113,32 @@ Button.defaultProps = {
     disabled: false,
     fluid: false,
     isLoading: false,
-    type: _Button.Type.Button,
-    variant: _Variant.Primary,
+    type: _Attribute.ButtonType.Button,
+    variant: _Variant.Button.Primary,
 }
 
-Button.Variant = _Variant
-Button.Type = _Button.Type
+Button.Variant = _Variant.Button
+Button.Type = _Attribute.ButtonType
 
-const commonVariant = {
-    borderRadius: _Border.Radius.Small,
-    borderStyle: _Border.Style.Solid,
-    borderWidth: _Border.Width.Normal,
-    fontFamily: _Typography.Font.Title,
-    fontSize: _Typography.Size.Xs,
-    fontWeight: _Typography.Weight.SemiBold,
-    height: _Size.Button,
-    position: _Position.Relative,
-    px: 4,
-    py: 0,
-}
+const loaderCSS = () =>
+    css({
+        '@keyframes loading': {
+            '0%': {
+                transform: 'rotate(0deg)',
+            },
+            '100%': {
+                transform: 'rotate(360deg)',
+            },
+        },
+        animation: 'loading 0.5s infinite linear',
+        border: `0.1rem solid`,
+        borderRightColor: 'transparent',
+        borderTopColor: 'transparent',
+        boxSizing: 'border-box',
+        content: '',
+    })
 
-const variants = {
-    [_Variant.Primary]: {
-        ...commonVariant,
-        backgroundColor: _Color.Foreground,
-        borderColor: _Color.Foreground,
-        color: _Color.Background,
-    },
-    [_Variant.Secondary]: {
-        ...commonVariant,
-        backgroundColor: _Color.Background,
-        borderColor: _Color.Primary8,
-        color: _Color.Foreground,
-    },
-}
-
-const Styled = styled('button', {
-    shouldForwardProp,
-})(
-    ({ block, disabled, fluid }) => ({
-        cursor: 'pointer',
-        display: block ? _Display.Block : _Display.InlineBlock,
-        opacity: disabled ? 0.35 : 'unset',
-        pointerEvents: disabled ? 'none' : 'unset',
-        textAlign: fluid ? _Typography.Align.Left : _Typography.Align.Center,
-        width: fluid ? '100%' : 'unset',
-    }),
-    border,
-    color,
-    layout,
-    position,
-    space,
-    typography,
-    variant({
-        variants,
-    }),
-)
-
-const LoadingSpinner = styled.div`
-    @keyframes loading {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-    animation: loading 0.5s infinite linear;
-    border: 0.1rem solid ${props => props.color};
-    border-radius: 50%;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    height: 1rem;
-    left: 50%;
-    margin-left: -0.5rem;
-    margin-top: -0.5rem;
-    position: absolute;
-    top: 50%;
-    width: 1rem;
-    z-index: 1;
-`
+const contentCSS = (isLoading: boolean) =>
+    css({
+        visibility: isLoading ? 'hidden' : 'visible',
+    })
