@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming'
 
-import theme from '../theme'
+import { theme } from '../theme'
 import { GlobalStyles } from './global'
 
 interface Props {

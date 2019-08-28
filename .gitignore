@@ -7,6 +7,9 @@ node_modules/
 # eslint cache
 .eslintcache
 
+# .docz build output
+.docz
+
 # next.js build output
 .next
 next-env.d.ts
