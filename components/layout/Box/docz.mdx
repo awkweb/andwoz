@@ -1,0 +1,21 @@
+---
+name: Box
+route: /layout/box
+menu: Layout
+---
+
+import { Playground, Props } from 'docz'
+import { Text } from '../../typography/Text'
+import { Box } from './'
+
+# Button
+
+<Props of={Box} />
+
+## Basic usage
+
+<Playground>
+    <Box b p={2} backgroundColor={Box.BackgroundColor.Primary3}>
+        <Text>This box has 2 units of margin and 2 units of padding.</Text>
+    </Box>
+</Playground>

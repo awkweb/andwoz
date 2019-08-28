@@ -2,11 +2,12 @@
     "name": "andwoz",
     "version": "1.0.0",
     "scripts": {
-        "dev": "next",
         "build": "next build",
-        "start": "next start",
         "deploy": "now",
-        "lint": "eslint --max-warnings 0 --cache --ignore-pattern !.*rc.js"
+        "dev": "next",
+        "docz": "docz dev",
+        "lint": "eslint --max-warnings 0 --cache --ignore-pattern !.*rc.js",
+        "start": "next start"
     },
     "husky": {
         "hooks": {
@@ -28,8 +29,8 @@
         "@zeit/next-css": "^1.0.1",
         "emotion-theming": "^10.0.14",
         "next": "^9.0.0",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
         "sanitize.css": "^10.0.0",
         "styled-system": "^5.1.1"
     },
@@ -41,6 +42,7 @@
         "@types/styled-system": "^5.1.1",
         "@typescript-eslint/eslint-plugin": "^2.0.0",
         "@typescript-eslint/parser": "^2.0.0",
+        "docz": "^2.0.0-rc.5",
         "eslint": "^6.0.1",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-import": "^2.18.0",
