@@ -1,8 +1,8 @@
 import { NextPage } from 'next'
 
-interface Props {}
-
 import { Box, Text } from '~/components'
+
+interface Props {}
 
 const Apply: NextPage<Props> = () => {
     return (

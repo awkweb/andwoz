@@ -1,4 +1,4 @@
-import { FormEvent, ReactNode } from 'react'
+import React, { FormEvent, ReactNode } from 'react'
 import styled from '@emotion/styled'
 import {
     border,
@@ -22,14 +22,14 @@ import {
 import css from '@styled-system/css'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import * as _Border from '../../types/border'
-import * as _Color from '../../types/color'
-import * as _Element from '../../types/element'
-import * as _Flexbox from '../../types/flexbox'
-import * as _Layout from '../../types/layout'
-import * as _Position from '../../types/position'
-import * as _Size from '../../types/size'
-import * as _Typography from '../../types/typography'
+import * as _Border from '../../../types/border'
+import * as _Color from '../../../types/color'
+import * as _Element from '../../../types/element'
+import * as _Flexbox from '../../../types/flexbox'
+import * as _Layout from '../../../types/layout'
+import * as _Position from '../../../types/position'
+import * as _Size from '../../../types/size'
+import * as _Typography from '../../../types/typography'
 
 interface StyledProps
     extends BackgroundColorProps,

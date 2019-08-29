@@ -1,6 +1,6 @@
 import { Theme } from 'styled-system'
 
-import { toRemString, typeScaleRoot } from '~/lib/toRemString'
+import { toRemString, typeScaleRoot } from '../../lib/toRemString'
 
 import { Breakpoint } from '../types/responsive'
 import { Color } from '../types/color'

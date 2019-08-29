@@ -1,7 +1,7 @@
-import * as _Color from '../../types/color'
-import * as _Element from '../../types/element'
-import * as _Typography from '../../types/typography'
-import * as _Variant from '../../types/variant'
+import * as _Color from '../../../types/color'
+import * as _Element from '../../../types/element'
+import * as _Typography from '../../../types/typography'
+import * as _Variant from '../../../types/variant'
 
 const variants = {
     [_Variant.Text.H1]: {

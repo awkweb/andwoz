@@ -4,13 +4,15 @@ import css from '@styled-system/css'
 import { variant, compose } from 'styled-system'
 
 import { Box } from '../../layout/Box'
-import { Field as _Variant } from '../../types/variant'
-import { InputType as _InputType } from '../../types/attribute'
-import { Color as _Color } from '../../types/color'
-import { Position as _Position } from '../../types/position'
-import { Size as _Size } from '../../types/size'
-import * as _Border from '../../types/border'
-import * as _Typography from '../../types/typography'
+import * as _Variant from '../../../types/variant'
+import * as _Attribute from '../../../types/attribute'
+import * as _Color from '../../../types/color'
+import * as _Position from '../../../types/position'
+import * as _Size from '../../../types/size'
+import * as _Border from '../../../types/border'
+import * as _Typography from '../../../types/typography'
+
+import variants from './variants'
 
 interface Props {
     autocomplete?: string
@@ -20,11 +22,35 @@ interface Props {
     id?: string
     label: string
     onChange: (e: ChangeEvent<any>) => void
-    type: _InputType
+    type: _Attribute.InputType
     valid?: boolean
     value: string | number | undefined
-    variant?: _Variant
+    variant?: _Variant.Field
 }
+
+const StyledInput = styled('input')(
+    ({ error }) =>
+        css({
+            ':focus': {
+                borderColor: !!error
+                    ? _Color.Color.Error
+                    : _Color.Color.Foreground,
+            },
+        }),
+    variant({
+        variants,
+    }),
+)
+
+const StyledLabel = styled('label')(
+    ({ error }) =>
+        css({
+            color: !!error ? _Color.Color.Error : _Color.Color.Foreground,
+            fontFamily: _Typography.Font.Body,
+            fontSize: _Typography.Size.Xxs,
+        }),
+    compose(),
+)
 
 export const Field = ({
     autocomplete,
@@ -79,7 +105,7 @@ export const Field = ({
             p={0}
             position={Box.Position.Relative}
         >
-            {variant !== _Variant.Capture && (
+            {variant !== _Variant.Field.Capture && (
                 <StyledLabel {...labelProps}>
                     {touched && error ? error : label}
                 </StyledLabel>
@@ -92,69 +118,9 @@ export const Field = ({
 Field.defaultProps = {
     autofocus: false,
     disabled: false,
-    type: _InputType.Text,
-    variant: _Variant.Form,
+    type: _Attribute.InputType.Text,
+    variant: _Variant.Field.Form,
 }
 
-Field.Type = _InputType
-Field.Variant = _Variant
-
-const commonVariant = {
-    '-webkit-appearance': 'none',
-    borderStyle: _Border.Style.Solid,
-    borderWidth: _Border.Width.Normal,
-    color: _Color.Foreground,
-    fontFamily: _Typography.Font.Body,
-    outline: 0,
-    position: _Position.Relative,
-    width: '100%',
-    '::-webkit-input-placeholder': {
-        color: _Color.Primary4,
-        opacity: 1,
-    },
-}
-
-const variants = {
-    [_Variant.Form]: {
-        ...commonVariant,
-        borderColor: _Color.Primary2,
-        borderRadius: _Border.Radius.Small,
-        fontSize: _Typography.Size.Sm,
-        height: _Size.Field,
-        px: 4,
-        py: 0,
-    },
-    [_Variant.Capture]: {
-        ...commonVariant,
-        borderColor: _Color.Foreground,
-        borderLeft: 'none',
-        borderRight: 'none',
-        borderTop: 'none',
-        fontSize: _Typography.Size.Md,
-        pb: 1,
-        pt: 0,
-        px: 0,
-    },
-}
-
-const StyledInput = styled('input')(
-    ({ error }) =>
-        css({
-            ':focus': {
-                borderColor: !!error ? _Color.Error : _Color.Foreground,
-            },
-        }),
-    variant({
-        variants,
-    }),
-)
-
-const StyledLabel = styled('label')(
-    ({ error }) =>
-        css({
-            color: !!error ? _Color.Error : _Color.Foreground,
-            fontFamily: _Typography.Font.Body,
-            fontSize: _Typography.Size.Xxs,
-        }),
-    compose(),
-)
+Field.Type = _Attribute.InputType
+Field.Variant = _Variant.Field

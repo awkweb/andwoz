@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 import styled from '@emotion/styled'
 import {
     color,
@@ -13,10 +13,10 @@ import {
 } from 'styled-system'
 import shouldForwardProp from '@styled-system/should-forward-prop'
 
-import * as _Color from '../../types/color'
-import * as _Element from '../../types/element'
-import * as _Typography from '../../types/typography'
-import * as _Variant from '../../types/variant'
+import * as _Color from '../../../types/color'
+import * as _Element from '../../../types/element'
+import * as _Typography from '../../../types/typography'
+import * as _Variant from '../../../types/variant'
 
 import variants from './variants'
 

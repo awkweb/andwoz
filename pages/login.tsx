@@ -3,7 +3,6 @@ import { NextPage } from 'next'
 // eslint-disable-next-line import/no-unresolved
 import Link from 'next/link'
 
-import { toRemString } from '~/lib/toRemString'
 import { Box, Text } from '~/components'
 import AppContext from '~/store/AppContext'
 

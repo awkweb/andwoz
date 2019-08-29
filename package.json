@@ -5,9 +5,9 @@
         "build": "next build",
         "deploy": "now",
         "dev": "next",
-        "docz": "docz dev",
         "lint": "eslint --max-warnings 0 --cache --ignore-pattern !.*rc.js",
-        "start": "next start"
+        "start": "next start",
+        "storybook": "start-storybook --static-dir ./static"
     },
     "husky": {
         "hooks": {
@@ -36,14 +36,17 @@
         "styled-system": "^5.1.1"
     },
     "devDependencies": {
+        "@babel/preset-typescript": "^7.3.3",
+        "@storybook/react": "^5.1.11",
         "@types/next": "^8.0.6",
         "@types/node": "^12.7.2",
         "@types/react": "^16.9.2",
         "@types/react-dom": "^16.9.0",
+        "@types/storybook__react": "^4.0.2",
         "@types/styled-system": "^5.1.1",
         "@typescript-eslint/eslint-plugin": "^2.0.0",
         "@typescript-eslint/parser": "^2.0.0",
-        "docz": "^1.2.0",
+        "babel-loader": "^8.0.6",
         "eslint": "^6.0.1",
         "eslint-config-prettier": "^6.0.0",
         "eslint-plugin-import": "^2.18.0",

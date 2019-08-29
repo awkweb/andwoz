@@ -1,12 +1,12 @@
-import * as _Attribute from '../../types/attribute'
-import * as _Border from '../../types/border'
-import * as _Color from '../../types/color'
-import * as _Layout from '../../types/layout'
-import * as _Position from '../../types/position'
-import * as _Shadow from '../../types/shadow'
-import * as _Size from '../../types/size'
-import * as _Typography from '../../types/typography'
-import * as _Variant from '../../types/variant'
+import * as _Attribute from '../../../types/attribute'
+import * as _Border from '../../../types/border'
+import * as _Color from '../../../types/color'
+import * as _Layout from '../../../types/layout'
+import * as _Position from '../../../types/position'
+import * as _Shadow from '../../../types/shadow'
+import * as _Size from '../../../types/size'
+import * as _Typography from '../../../types/typography'
+import * as _Variant from '../../../types/variant'
 
 const commonVariant = {
     borderRadius: _Border.Radius.Small,

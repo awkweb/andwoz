@@ -1,5 +1,5 @@
-import { ThemeProvider } from '~/components'
-import { AppProvider } from '~/store/AppContext'
+import { ThemeProvider } from '../components'
+import { AppProvider } from '../store/AppContext'
 
 const App = ({ Component, pageProps }) => {
     return (
