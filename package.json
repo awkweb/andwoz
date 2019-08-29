@@ -7,7 +7,7 @@
         "dev": "next",
         "lint": "eslint --max-warnings 0 --cache --ignore-pattern !.*rc.js",
         "start": "next start",
-        "storybook": "start-storybook --static-dir ./static"
+        "storybook": "start-storybook --port 4000 --static-dir ./"
     },
     "husky": {
         "hooks": {
@@ -37,6 +37,7 @@
     },
     "devDependencies": {
         "@babel/preset-typescript": "^7.3.3",
+        "@storybook/addon-actions": "^5.1.11",
         "@storybook/react": "^5.1.11",
         "@types/next": "^8.0.6",
         "@types/node": "^12.7.2",

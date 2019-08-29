@@ -5,7 +5,7 @@ import 'sanitize.css'
 import 'sanitize.css/typography.css'
 import 'sanitize.css/forms.css'
 
-import '../../../../static/styles/fonts.css'
+import '~/static/styles/fonts.css'
 
 export const GlobalStyles = () => (
     <Global

@@ -3,7 +3,7 @@ import { ThemeProvider, Box } from '../components'
 
 addParameters({
     options: {
-        showPanel: false,
+        panelPosition: 'right',
     },
 })
 

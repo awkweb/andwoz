@@ -31,7 +31,7 @@ interface Props {
     children: ReactNode
     disabled: boolean
     fluid: boolean
-    isLoading: boolean
+    loading: boolean
     onClick?: ((e: MouseEvent<HTMLElement>) => void) | boolean
     type: _Attribute.ButtonType
     variant?: _Variant.Button
@@ -48,6 +48,7 @@ const StyledButton = styled('button')(
             textAlign: props.fluid
                 ? _Typography.Align.Left
                 : _Typography.Align.Center,
+            whiteSpace: 'nowrap',
             width: props.fluid ? '100% !important' : null,
         }),
     compose(
@@ -70,7 +71,7 @@ export const Button = ({ children, onClick, ...props }: Props) => {
             onClick(e)
         }
     }
-    const { isLoading } = props
+    const { loading } = props
     const loadingContent = (
         <Box
             alignItems={Box.AlignItems.Center}
@@ -99,10 +100,10 @@ export const Button = ({ children, onClick, ...props }: Props) => {
             />
         </Box>
     )
-    const content = <Box css={contentCSS(isLoading)}>{children}</Box>
+    const content = <Box css={contentCSS(loading)}>{children}</Box>
     return (
         <StyledButton onClick={handleClick} {...props}>
-            {isLoading ? loadingContent : null}
+            {loading ? loadingContent : null}
             {content}
         </StyledButton>
     )
@@ -112,7 +113,7 @@ Button.defaultProps = {
     block: false,
     disabled: false,
     fluid: false,
-    isLoading: false,
+    loading: false,
     type: _Attribute.ButtonType.Button,
     variant: _Variant.Button.Primary,
 }
@@ -138,7 +139,7 @@ const loaderCSS = () =>
         content: '""',
     })
 
-const contentCSS = (isLoading: boolean) =>
+const contentCSS = (loading: boolean) =>
     css({
-        visibility: isLoading ? 'hidden' : 'visible',
+        visibility: loading ? 'hidden' : 'visible',
     })
