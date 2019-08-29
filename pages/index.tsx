@@ -49,16 +49,16 @@ const Home: NextPage<Props> = () => {
                 </Box>
                 <Box
                     el={Box.Element.Form}
-                    ml={5}
                     mb={5}
+                    ml={5}
                     onSubmit={handleSubmit}
                 >
                     <Box mb={2}>
                         <Field
                             label="Email"
+                            type={Field.Type.Text}
                             value={email}
                             onChange={handleChange}
-                            type={Field.Type.Text}
                         />
                     </Box>
                     <Link
@@ -76,7 +76,7 @@ const Home: NextPage<Props> = () => {
                             block
                             disabled={isLoading}
                             fluid
-                            isLoading={isLoading}
+                            loading={isLoading}
                             onClick={handleClick}
                         >
                             Sign Up
@@ -86,7 +86,7 @@ const Home: NextPage<Props> = () => {
                         block
                         disabled={isLoading}
                         fluid
-                        isLoading={isLoading}
+                        loading={isLoading}
                         variant={Button.Variant.Secondary}
                         onClick={handleClick}
                     >

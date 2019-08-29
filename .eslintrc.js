@@ -37,6 +37,9 @@ module.exports = {
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/self-closing-comp': 'warn',
+        'react/jsx-sort-props': ['error', {
+            "callbacksLast": true,
+        }],
         'react/jsx-wrap-multilines': 'error',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
