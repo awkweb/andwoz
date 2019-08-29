@@ -2,4 +2,4 @@ import { storiesOf } from '@storybook/react'
 
 import { Field } from '.'
 
-storiesOf('Field', module).add('base', () => <Field />)
+storiesOf('Form|Field', module).add('base', () => <Field />)

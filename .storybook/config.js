@@ -10,7 +10,7 @@ addParameters({
 addDecorator(story => (
     <ThemeProvider>
         <>
-            <Box p={3}>{story()}</Box>
+            <Box maxWidth={350} p={5}>{story()}</Box>
         </>
     </ThemeProvider>
 ))
