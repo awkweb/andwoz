@@ -60,5 +60,26 @@
         "prettier": "^1.18.2",
         "typescript": "^3.5.3"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "babel": {
+        "presets": [
+            "next/babel",
+            "@emotion/babel-preset-css-prop"
+        ],
+        "plugins": [
+            [
+                "emotion",
+                {
+                    "ssr": true
+                }
+            ]
+        ]
+    },
+    "prettier": {
+        "printWidth": 80,
+        "semi": false,
+        "singleQuote": true,
+        "tabWidth": 4,
+        "trailingComma": "all"
+    }
 }
