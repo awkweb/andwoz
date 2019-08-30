@@ -19,7 +19,7 @@ interface Props extends StyledProps {
 const StyledLabel = styled('label')((props: Props) =>
     css({
         backgroundImage: `linear-gradient(to bottom, ${props.theme.colors.background} 45%, ${props.theme.colors.white} 45%)`,
-        color: props.error ? _Color.Color.Error : _Color.Color.Foreground,
+        color: !!props.error ? _Color.Color.Error : _Color.Color.Foreground,
         fontFamily: _Typography.Font.Body,
         fontSize: _Typography.Size.Xxs,
         left: '0.8rem',

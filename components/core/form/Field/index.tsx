@@ -12,36 +12,49 @@ import * as _Size from '../../../types/size'
 import * as _Border from '../../../types/border'
 import * as _Typography from '../../../types/typography'
 
-import variants from './variants'
 import { Label } from './components/Label'
 
-interface Props {
-    autofocus: boolean
+interface StyledProps {
     disabled: boolean
     error?: string
     id: string
-    label: string
     onChange: (e: ChangeEvent<any>) => void
     type: _Attribute.InputType
     valid?: boolean
     value: string | number | undefined
-    variant?: _Variant.Field
 }
 
-const StyledInput = styled('input')(
-    (props: Props) =>
-        css({
+interface Props extends StyledProps {
+    autofocus: boolean
+    label: string
+}
+
+const StyledInput = styled('input')((props: StyledProps) =>
+    css({
+        borderColor: !!props.error ? _Color.Color.Error : _Color.Color.Primary2,
+        appearance: 'none',
+        backgroundColor: _Color.Color.White,
+        borderRadius: _Border.Radius.Small,
+        borderStyle: _Border.Style.Solid,
+        borderWidth: _Border.Width.Normal,
+        color: _Color.Color.Foreground,
+        fontFamily: _Typography.Font.Body,
+        fontSize: _Typography.Size.Sm,
+        height: _Size.Size.Field,
+        outline: 0,
+        position: _Position.Position.Relative,
+        px: 4,
+        py: 0,
+        width: '100%',
+        ':focus': {
             borderColor: !!props.error
                 ? _Color.Color.Error
-                : _Color.Color.Primary2,
-            ':focus': {
-                borderColor: !!props.error
-                    ? _Color.Color.Error
-                    : _Color.Color.Foreground,
-            },
-        }),
-    variant({
-        variants,
+                : _Color.Color.Foreground,
+        },
+        '::-webkit-input-placeholder': {
+            color: _Color.Color.Primary4,
+            opacity: 1,
+        },
     }),
 )
 
@@ -54,7 +67,6 @@ export const Field = ({
     onChange,
     type,
     value,
-    variant,
 }: Props) => {
     const handleChange = (e: ChangeEvent<any>) => {
         if (onChange && typeof onChange === 'function') {
@@ -67,7 +79,7 @@ export const Field = ({
         active,
         autoFocus: autofocus,
         disabled,
-        error: !!error,
+        error,
         id,
         name: id,
         onChange: handleChange,
@@ -97,8 +109,6 @@ Field.defaultProps = {
     autofocus: false,
     disabled: false,
     type: _Attribute.InputType.Text,
-    variant: _Variant.Field.Form,
 }
 
 Field.Type = _Attribute.InputType
-Field.Variant = _Variant.Field
