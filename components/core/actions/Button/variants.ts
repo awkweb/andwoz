@@ -16,7 +16,7 @@ const commonVariant = {
     fontFamily: _Typography.Font.Title,
     fontSize: _Typography.Size.Xs,
     fontWeight: _Typography.Weight.SemiBold,
-    height: _Size.Size.Button,
+    height: _Size.Size.ButtonHeight,
     outline: 'none',
     position: _Position.Position.Relative,
     px: 4,

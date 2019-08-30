@@ -30,7 +30,7 @@ const Home: NextPage<Props> = () => {
             alignItems={Box.AlignItems.Center}
             display={Box.Display.Flex}
             fluidHeight
-            maxWidth={Box.Size.ContainerX}
+            maxWidth={Box.Size.ContainerWidth}
             mx="auto"
             pb={10}
         >

@@ -3,23 +3,19 @@ import styled from '@emotion/styled'
 import css from '@styled-system/css'
 
 import { Box } from '../../layout/Box'
-import * as _Attribute from '../../../types/attribute'
 import * as _Color from '../../../types/color'
 import * as _Position from '../../../types/position'
 import * as _Size from '../../../types/size'
 import * as _Border from '../../../types/border'
 import * as _Typography from '../../../types/typography'
-
 import { Label } from './components/Label'
 
 interface StyledProps {
     disabled: boolean
-    error?: string
+    error: boolean
     id: string
     onChange: (e: ChangeEvent<any>) => void
-    type: _Attribute.InputType
-    valid?: boolean
-    value: string | number | undefined
+    value: string | undefined
 }
 
 interface Props extends StyledProps {
@@ -27,7 +23,7 @@ interface Props extends StyledProps {
     label: string
 }
 
-const StyledInput = styled('input')((props: StyledProps) =>
+const StyledInput = styled('textarea')((props: StyledProps) =>
     css({
         borderColor: !!props.error ? _Color.Color.Error : _Color.Color.Primary2,
         appearance: 'none',
@@ -37,12 +33,12 @@ const StyledInput = styled('input')((props: StyledProps) =>
         borderWidth: _Border.Width.Normal,
         color: _Color.Color.Foreground,
         fontFamily: _Typography.Font.Body,
-        fontSize: _Typography.Size.Sm,
-        height: _Size.Size.FieldHeight,
+        fontSize: _Typography.Size.Xs,
+        minHeight: _Size.Size.TextareaHeight,
         outline: 0,
         position: _Position.Position.Relative,
-        px: 4,
-        py: 0,
+        px: 3,
+        py: 2,
         transition: 'border-color 0.25s ease-in-out',
         width: '100%',
         ':focus': {
@@ -50,21 +46,19 @@ const StyledInput = styled('input')((props: StyledProps) =>
                 ? _Color.Color.Error
                 : _Color.Color.Foreground,
         },
-        '::-webkit-input-placeholder': {
-            color: _Color.Color.Primary4,
-            opacity: 1,
+        '&[rows]': {
+            height: 'auto',
         },
     }),
 )
 
-export const Field = ({
+export const Textarea = ({
     autofocus,
     disabled,
     error,
     id,
     label,
     onChange,
-    type,
     value,
 }: Props) => {
     const handleChange = (e: ChangeEvent<any>) => {
@@ -82,9 +76,8 @@ export const Field = ({
         id,
         name: id,
         onChange: handleChange,
-        placeholder: active ? '' : label,
         spellCheck: false,
-        type,
+        rows: 8,
         value,
     }
     return (
@@ -103,10 +96,8 @@ export const Field = ({
     )
 }
 
-Field.defaultProps = {
+Textarea.defaultProps = {
     autofocus: false,
     disabled: false,
-    type: _Attribute.InputType.Text,
+    error: false,
 }
-
-Field.Type = _Attribute.InputType

@@ -1,5 +1,6 @@
 import { addDecorator, addParameters, configure } from '@storybook/react'
-import { Box, GlobalStyles, theme, ThemeProvider } from '../components'
+import { ThemeProvider } from 'emotion-theming'
+import { Box, GlobalStyles, theme } from '../components'
 
 addParameters({
     options: {
@@ -11,7 +12,7 @@ addDecorator(story => (
     <ThemeProvider theme={theme}>
         <>
             <GlobalStyles />
-            <Box maxWidth={350} p={5}>
+            <Box maxWidth={375} m={5}>
                 {story()}
             </Box>
         </>

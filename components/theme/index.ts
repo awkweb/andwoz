@@ -78,9 +78,10 @@ const shadows = {
     [BoxShadow.Button]: '0 0 0 0.2em rgba(0,0,0,.4)',
 }
 const sizes = {
-    [Size.Button]: toRemString(48),
-    [Size.Field]: toRemString(48),
-    [Size.ContainerX]: toRemString(1024),
+    [Size.ButtonHeight]: toRemString(48),
+    [Size.FieldHeight]: toRemString(48),
+    [Size.ContainerWidth]: toRemString(1024),
+    [Size.TextareaHeight]: toRemString(186),
 }
 const space = [
     toRemString(0),
