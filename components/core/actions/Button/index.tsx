@@ -1,17 +1,7 @@
 import { ReactNode, MouseEvent } from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
-import {
-    border,
-    color,
-    layout,
-    position,
-    shadow,
-    space,
-    typography,
-    variant,
-    compose,
-} from 'styled-system'
+import { variant } from 'styled-system'
 
 import { Box } from '../../layout/Box'
 import * as _Attribute from '../../../types/attribute'
@@ -19,26 +9,28 @@ import * as _Border from '../../../types/border'
 import * as _Color from '../../../types/color'
 import * as _Layout from '../../../types/layout'
 import * as _Position from '../../../types/position'
-import * as _Shadow from '../../../types/shadow'
 import * as _Size from '../../../types/size'
 import * as _Typography from '../../../types/typography'
 import * as _Variant from '../../../types/variant'
 
 import variants from './variants'
 
-interface Props {
+interface StyledProps {
     block: boolean
     children: ReactNode
     disabled: boolean
     fluid: boolean
-    loading: boolean
     onClick?: ((e: MouseEvent<HTMLElement>) => void) | boolean
     type: _Attribute.ButtonType
     variant?: _Variant.Button
 }
 
+interface Props extends StyledProps {
+    loading: boolean
+}
+
 const StyledButton = styled('button')(
-    (props: Props) =>
+    (props: StyledProps) =>
         css({
             display: props.block
                 ? _Layout.Display.Block
@@ -51,27 +43,17 @@ const StyledButton = styled('button')(
             whiteSpace: 'nowrap',
             width: props.fluid ? '100% !important' : null,
         }),
-    compose(
-        border,
-        color,
-        layout,
-        position,
-        shadow,
-        space,
-        typography,
-    ),
     variant({
         variants,
     }),
 )
 
-export const Button = ({ children, onClick, ...props }: Props) => {
+export const Button = ({ children, loading, onClick, ...props }: Props) => {
     const handleClick = (e: React.MouseEvent<HTMLElement>) => {
         if (onClick && typeof onClick === 'function') {
             onClick(e)
         }
     }
-    const { loading } = props
     const loadingContent = (
         <Box
             alignItems={Box.AlignItems.Center}
@@ -86,8 +68,8 @@ export const Button = ({ children, onClick, ...props }: Props) => {
             zIndex={Box.ZIndex.Highest}
         >
             <Box
-                css={loaderCSS()}
                 borderRadius={Box.BorderRadius.Circle}
+                css={loaderCSS()}
                 display={Box.Display.Block}
                 height="1rem"
                 left="50%"

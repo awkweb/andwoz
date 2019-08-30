@@ -5,7 +5,6 @@ export enum Button {
 
 export enum Field {
     Form = 'form',
-    Capture = 'capture',
 }
 
 export enum Text {

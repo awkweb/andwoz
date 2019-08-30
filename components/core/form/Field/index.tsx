@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
-import { variant, compose } from 'styled-system'
+import { variant } from 'styled-system'
 
 import { Box } from '../../layout/Box'
 import * as _Variant from '../../../types/variant'
@@ -15,7 +15,6 @@ import * as _Typography from '../../../types/typography'
 import variants from './variants'
 
 interface Props {
-    autocomplete?: string
     autofocus: boolean
     disabled: boolean
     error?: string
@@ -28,11 +27,38 @@ interface Props {
     variant?: _Variant.Field
 }
 
+interface LabelProps {
+    active?: boolean
+    error?: boolean
+    htmlFor?: string
+    theme?: any
+}
+
+const StyledLabel = styled('label')((props: LabelProps) =>
+    css({
+        backgroundImage: `linear-gradient(to bottom, ${props.theme.colors.background} 45%, ${props.theme.colors.white} 45%)`,
+        color: props.error ? _Color.Color.Error : _Color.Color.Foreground,
+        fontFamily: _Typography.Font.Body,
+        fontSize: _Typography.Size.Xxs,
+        left: '0.8rem',
+        opacity: props.active ? 1 : 0,
+        pointerEvents: 'none',
+        position: _Position.Position.Absolute,
+        px: 1,
+        transform: props.active ? 'translateY(-.5rem)' : 'translateY(1.6rem)',
+        transition: 'opacity, transform 100ms ease',
+        zIndex: _Position.ZIndex.High,
+    }),
+)
+
 const StyledInput = styled('input')(
-    ({ error }) =>
+    (props: Props) =>
         css({
+            borderColor: !!props.error
+                ? _Color.Color.Error
+                : _Color.Color.Primary2,
             ':focus': {
-                borderColor: !!error
+                borderColor: !!props.error
                     ? _Color.Color.Error
                     : _Color.Color.Foreground,
             },
@@ -42,18 +68,7 @@ const StyledInput = styled('input')(
     }),
 )
 
-const StyledLabel = styled('label')(
-    ({ error }) =>
-        css({
-            color: !!error ? _Color.Color.Error : _Color.Color.Foreground,
-            fontFamily: _Typography.Font.Body,
-            fontSize: _Typography.Size.Xxs,
-        }),
-    compose(),
-)
-
 export const Field = ({
-    autocomplete,
     autofocus,
     disabled,
     error,
@@ -63,36 +78,27 @@ export const Field = ({
     type,
     value,
     variant,
-    ...props
 }: Props) => {
-    const [touched, setTouched] = useState(false)
     const handleChange = (e: ChangeEvent<any>) => {
         if (onChange && typeof onChange === 'function') {
             onChange(e)
         }
     }
-    const handleBlur = () => {
-        if (!touched) {
-            setTouched(true)
-        }
-    }
 
-    const active = !!value || (touched && !!error)
-    const labelProps = { active, error: touched && error, htmlFor: id }
+    const active = !!value || !!error
+    const labelProps = { active, error: !!error, htmlFor: id }
     const inputProps = {
         active,
-        disabled,
-        id,
-        type,
-        value,
-        autoComplete: autocomplete,
         autoFocus: autofocus,
-        error: touched && error,
+        disabled,
+        error: !!error,
+        id,
         name: id,
-        onBlur: handleBlur,
         onChange: handleChange,
         placeholder: active ? '' : label,
         spellCheck: false,
+        type,
+        value,
         variant,
     }
     return (
@@ -105,11 +111,7 @@ export const Field = ({
             p={0}
             position={Box.Position.Relative}
         >
-            {variant !== _Variant.Field.Capture && (
-                <StyledLabel {...labelProps}>
-                    {touched && error ? error : label}
-                </StyledLabel>
-            )}
+            <StyledLabel {...labelProps}>{error ? error : label}</StyledLabel>
             <StyledInput {...inputProps} />
         </Box>
     )

@@ -1,12 +1,15 @@
-import { ThemeProvider } from '../components'
+import { ThemeProvider, theme, GlobalStyles } from '../components'
 import { AppProvider } from '../store/AppContext'
 
 const App = ({ Component, pageProps }) => {
     return (
-        <ThemeProvider>
-            <AppProvider>
-                <Component {...pageProps} />
-            </AppProvider>
+        <ThemeProvider theme={theme}>
+            <>
+                <GlobalStyles />
+                <AppProvider>
+                    <Component {...pageProps} />
+                </AppProvider>
+            </>
         </ThemeProvider>
     )
 }

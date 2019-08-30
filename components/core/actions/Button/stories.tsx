@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions'
 import { Button } from '.'
 import { Box } from '../../layout/Box'
 
-const buttonText = 'Hello World'
+const buttonText = 'Sign Up'
 
 storiesOf('actions|Button', module)
     .add('default', () => (
@@ -16,8 +16,8 @@ storiesOf('actions|Button', module)
                 <Button onClick={action('onClick')}>{buttonText}</Button>
             </Box>
             <Button
-                onClick={action('onClick')}
                 variant={Button.Variant.Secondary}
+                onClick={action('onClick')}
             >
                 {buttonText}
             </Button>

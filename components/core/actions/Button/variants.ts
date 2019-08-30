@@ -31,7 +31,7 @@ const variants = {
         ...commonVariant,
         backgroundColor: _Color.Color.Foreground,
         borderColor: _Color.Color.Foreground,
-        color: _Color.Color.Background,
+        color: _Color.Color.White,
         ':hover': {
             backgroundColor: _Color.Color.Primary8,
         },

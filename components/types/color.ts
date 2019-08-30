@@ -9,6 +9,7 @@ export enum Color {
     Primary2 = 'primary2',
     Primary1 = 'primary1',
     Background = 'background',
+    White = 'white',
     Error = 'error',
     Success = 'success',
     Warning = 'warning',

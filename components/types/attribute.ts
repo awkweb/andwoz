@@ -5,4 +5,5 @@ export enum ButtonType {
 
 export enum InputType {
     Text = 'text',
+    Password = 'password',
 }

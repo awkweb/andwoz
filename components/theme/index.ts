@@ -39,6 +39,7 @@ const colors = {
     [Color.Primary2]: 'hsl(109, 0%, 83%)',
     [Color.Primary1]: 'hsl(109, 0%, 98%)',
     [Color.Background]: 'hsl(42, 100%, 99%)',
+    [Color.White]: 'hsl(104, 100%, 100%)',
     [Color.Error]: 'hsl(0, 100%, 50%)',
     [Color.Success]: 'hsl(163, 100%, 41%)',
     [Color.Warning]: 'hsl(38, 100%, 61%)',

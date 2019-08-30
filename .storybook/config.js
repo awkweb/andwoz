@@ -1,5 +1,5 @@
 import { addDecorator, addParameters, configure } from '@storybook/react'
-import { ThemeProvider, Box } from '../components'
+import { Box, GlobalStyles, theme, ThemeProvider } from '../components'
 
 addParameters({
     options: {
@@ -8,17 +8,17 @@ addParameters({
 })
 
 addDecorator(story => (
-    <ThemeProvider>
+    <ThemeProvider theme={theme}>
         <>
-            <Box maxWidth={350} p={5}>{story()}</Box>
+            <GlobalStyles />
+            <Box maxWidth={350} p={5}>
+                {story()}
+            </Box>
         </>
     </ThemeProvider>
 ))
 
 const req = require.context('../components/core', true, /stories\.tsx$/)
-
-function loadStories() {
-    req.keys().forEach(req)
-}
+const loadStories = () => req.keys().forEach(req)
 
 configure(loadStories, module)

@@ -1,5 +1,7 @@
 export { Box } from './core/layout/Box'
 export { Button } from './core/actions/Button'
 export { Field } from './core/form/Field'
+export { GlobalStyles } from './core/theme/GlobalStyles'
 export { Text } from './core/typography/Text'
+export { theme } from './theme'
 export { ThemeProvider } from './core/theme/ThemeProvider'

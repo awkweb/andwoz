@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 // eslint-disable-next-line import/no-unresolved
 import Link from 'next/link'
 
-import { Box, Text } from '~/components'
+import { Box, Text, Field, Button } from '~/components'
 import AppContext from '~/store/AppContext'
 
 interface Props {}
@@ -37,20 +37,13 @@ const Register: NextPage<Props> = () => {
             </Box>
             <Box el={Box.Element.Form} onSubmit={handleSubmit}>
                 <Box>
-                    <input
-                        type="text"
-                        placeholder="Email"
+                    <Field
+                        label="Email"
                         value={email}
                         onChange={handleChange}
                     />
                 </Box>
-                <Box>
-                    <input type="password" placeholder="Password" />
-                </Box>
-                <Box>
-                    <input type="password" placeholder="Confirm Password" />
-                </Box>
-                <button type="submit">Sign Up</button>
+                <Button>Sign Up</Button>
             </Box>
         </Box>
     )
