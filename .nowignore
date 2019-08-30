@@ -1,9 +1,0 @@
-.cache
-.eslintrc.js
-.gitignore
-.next
-.prettierrc.js
-.vscode
-LICENSE
-README.md
-yarn.lock
