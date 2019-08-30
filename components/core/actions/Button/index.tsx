@@ -14,6 +14,7 @@ import * as _Typography from '../../../types/typography'
 import * as _Variant from '../../../types/variant'
 
 import variants from './variants'
+import { LoadingContent } from './components/LoadingContent'
 
 interface StyledProps {
     block: boolean
@@ -35,13 +36,10 @@ const StyledButton = styled('button')(
             display: props.block
                 ? _Layout.Display.Block
                 : _Layout.Display.InlineBlock,
-            opacity: props.disabled ? 0.65 : null,
-            pointerEvents: props.disabled ? 'none' : null,
             textAlign: props.fluid
                 ? _Typography.Align.Left
                 : _Typography.Align.Center,
-            whiteSpace: 'nowrap',
-            width: props.fluid ? '100% !important' : null,
+            width: props.fluid ? '100%' : null,
         }),
     variant({
         variants,
@@ -54,38 +52,10 @@ export const Button = ({ children, loading, onClick, ...props }: Props) => {
             onClick(e)
         }
     }
-    const loadingContent = (
-        <Box
-            alignItems={Box.AlignItems.Center}
-            display={Box.Display.Flex}
-            flexDirection={Box.FlexDirection.Column}
-            fluidHeight
-            fluidWidth
-            justifyContent={Box.JustifyContent.Center}
-            left={0}
-            position={Box.Position.Absolute}
-            top={0}
-            zIndex={Box.ZIndex.Highest}
-        >
-            <Box
-                borderRadius={Box.BorderRadius.Circle}
-                css={loaderCSS()}
-                display={Box.Display.Block}
-                height="1rem"
-                left="50%"
-                ml="-0.5rem"
-                mt="-0.5rem"
-                position={Box.Position.Absolute}
-                top="50%"
-                width="1rem"
-                zIndex={Box.ZIndex.Higher}
-            />
-        </Box>
-    )
     const content = <Box css={contentCSS(loading)}>{children}</Box>
     return (
         <StyledButton onClick={handleClick} {...props}>
-            {loading ? loadingContent : null}
+            {loading ? <LoadingContent /> : null}
             {content}
         </StyledButton>
     )
@@ -102,24 +72,6 @@ Button.defaultProps = {
 
 Button.Variant = _Variant.Button
 Button.Type = _Attribute.ButtonType
-
-const loaderCSS = () =>
-    css({
-        '@keyframes loading': {
-            '0%': {
-                transform: 'rotate(0deg)',
-            },
-            '100%': {
-                transform: 'rotate(360deg)',
-            },
-        },
-        animation: 'loading 0.5s infinite linear',
-        border: `0.1rem solid`,
-        borderRightColor: 'transparent',
-        borderTopColor: 'transparent',
-        boxSizing: 'border-box',
-        content: '""',
-    })
 
 const contentCSS = (loading: boolean) =>
     css({

@@ -21,8 +21,15 @@ const commonVariant = {
     position: _Position.Position.Relative,
     px: 4,
     py: 0,
+    whiteSpace: 'nowrap',
     ':focus': {
         boxShadow: _Shadow.BoxShadow.Button,
+    },
+    ':disabled': {
+        cursor: 'not-allowed',
+        opacity: 0.5,
+        pointerEvents: 'none',
+        userSelect: 'none',
     },
 }
 

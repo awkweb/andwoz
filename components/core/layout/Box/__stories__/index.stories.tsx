@@ -1,16 +1,16 @@
 import { storiesOf } from '@storybook/react'
 
-import { Box } from '.'
-import { Text } from '../../typography/Text'
+import { Box } from '..'
+import { Text } from '../../../typography/Text'
 
 storiesOf('Layout|Box', module).add('default', () => (
     <Box
         borderColor={Box.BorderColor.Primary2}
-        borderStyle={Box.BorderStyle.Solid}
         borderRadius={Box.BorderRadius.Small}
+        borderStyle={Box.BorderStyle.Solid}
         borderWidth={Box.BorderWidth.Normal}
-        textAlign={Box.TextAlign.Center}
         p={5}
+        textAlign={Box.TextAlign.Center}
     >
         <Text>I&lsquo;m a Box</Text>
     </Box>

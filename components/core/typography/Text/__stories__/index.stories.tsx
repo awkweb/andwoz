@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react'
 
-import { Text } from '.'
-import { Box } from '../../layout/Box'
+import { Text } from '..'
+import { Box } from '../../../layout/Box'
 
 storiesOf('Typography|Text', module)
     .add('default', () => <Text>Hello Text</Text>)

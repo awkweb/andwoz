@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import { Button } from '.'
-import { Box } from '../../layout/Box'
+import { Button } from '..'
+import { Box } from '../../../layout/Box'
 
 const buttonText = 'Sign Up'
 

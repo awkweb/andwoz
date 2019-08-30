@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react'
+import { ChangeEvent } from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 import { variant } from 'styled-system'
@@ -13,12 +13,13 @@ import * as _Border from '../../../types/border'
 import * as _Typography from '../../../types/typography'
 
 import variants from './variants'
+import { Label } from './components/Label'
 
 interface Props {
     autofocus: boolean
     disabled: boolean
     error?: string
-    id?: string
+    id: string
     label: string
     onChange: (e: ChangeEvent<any>) => void
     type: _Attribute.InputType
@@ -26,30 +27,6 @@ interface Props {
     value: string | number | undefined
     variant?: _Variant.Field
 }
-
-interface LabelProps {
-    active?: boolean
-    error?: boolean
-    htmlFor?: string
-    theme?: any
-}
-
-const StyledLabel = styled('label')((props: LabelProps) =>
-    css({
-        backgroundImage: `linear-gradient(to bottom, ${props.theme.colors.background} 45%, ${props.theme.colors.white} 45%)`,
-        color: props.error ? _Color.Color.Error : _Color.Color.Foreground,
-        fontFamily: _Typography.Font.Body,
-        fontSize: _Typography.Size.Xxs,
-        left: '0.8rem',
-        opacity: props.active ? 1 : 0,
-        pointerEvents: 'none',
-        position: _Position.Position.Absolute,
-        px: 1,
-        transform: props.active ? 'translateY(-.5rem)' : 'translateY(1.6rem)',
-        transition: 'opacity, transform 100ms ease',
-        zIndex: _Position.ZIndex.High,
-    }),
-)
 
 const StyledInput = styled('input')(
     (props: Props) =>
@@ -84,9 +61,8 @@ export const Field = ({
             onChange(e)
         }
     }
-
     const active = !!value || !!error
-    const labelProps = { active, error: !!error, htmlFor: id }
+    const labelProps = { active, error, label, htmlFor: id }
     const inputProps = {
         active,
         autoFocus: autofocus,
@@ -111,7 +87,7 @@ export const Field = ({
             p={0}
             position={Box.Position.Relative}
         >
-            <StyledLabel {...labelProps}>{error ? error : label}</StyledLabel>
+            <Label {...labelProps} />
             <StyledInput {...inputProps} />
         </Box>
     )
