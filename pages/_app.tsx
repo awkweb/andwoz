@@ -1,4 +1,6 @@
-import { ThemeProvider, theme, GlobalStyles } from '../components'
+import { ThemeProvider } from 'emotion-theming'
+
+import { theme, GlobalStyles } from '../components'
 import { AppProvider } from '../store/AppContext'
 
 const App = ({ Component, pageProps }) => {
