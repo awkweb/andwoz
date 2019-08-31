@@ -18,12 +18,17 @@ export const GlobalStyles = () => (
                 -moz-osx-font-smoothing: grayscale;
                 background-color: ${theme.colors.background};
                 color: ${theme.colors.foreground};
+                font-family: ${theme.fonts.body};
                 min-height: 100vh;
                 text-rendering: optimizeLegibility;
             }
             #__next {
                 height: 100vh;
                 min-height: 100vh;
+            }
+            a {
+                color: inherit;
+                font-family: ${theme.fonts.body};
             }
         `}
     />

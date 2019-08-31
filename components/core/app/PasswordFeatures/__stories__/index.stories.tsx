@@ -10,7 +10,6 @@ storiesOf('App|PasswordFeatures', module)
         <>
             <Box mb={2}>
                 <Field
-                    id="password"
                     label="Password"
                     type={Field.Type.Password}
                     value="merp"

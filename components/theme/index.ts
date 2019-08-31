@@ -63,6 +63,7 @@ const fontSizes = {
 const fontWeights = {
     [Typography.Weight.Bold]: 700,
     [Typography.Weight.SemiBold]: 600,
+    [Typography.Weight.Medium]: 500,
     [Typography.Weight.Normal]: 400,
 }
 const lineHeights = {
@@ -80,7 +81,8 @@ const shadows = {
 const sizes = {
     [Size.ButtonHeight]: toRemString(48),
     [Size.FieldHeight]: toRemString(48),
-    [Size.ContainerWidth]: toRemString(1024),
+    [Size.AuthWidth]: toRemString(375),
+    [Size.ContainerWidth]: toRemString(1088),
     [Size.TextareaHeight]: toRemString(186),
 }
 const space = [

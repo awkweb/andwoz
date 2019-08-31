@@ -12,6 +12,6 @@ storiesOf('Layout|Box', module).add('default', () => (
         p={5}
         textAlign={Box.TextAlign.Center}
     >
-        <Text>I&lsquo;m a Box</Text>
+        <Text>I&rsquo;m a Box</Text>
     </Box>
 ))

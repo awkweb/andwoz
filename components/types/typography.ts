@@ -29,5 +29,6 @@ export enum Size {
 export enum Weight {
     Bold = 'bold',
     SemiBold = 'semibold',
+    Medium = 'medium',
     Normal = 'normal',
 }

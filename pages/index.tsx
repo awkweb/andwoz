@@ -1,30 +1,11 @@
-import { useContext, FormEvent, ChangeEvent, useState } from 'react'
 import { NextPage } from 'next'
-// eslint-disable-next-line import/no-unresolved
-import Link from 'next/link'
 
 import { toRemString } from '~/lib/toRemString'
-import { Box, Text, Button, Field } from '~/components'
-import AppContext from '~/store/AppContext'
+import { Box, Text, EmailCapture } from '~/components'
 
 interface Props {}
 
 const Home: NextPage<Props> = () => {
-    const { email, setEmail } = useContext(AppContext)
-    const handleChange = (event: ChangeEvent<any>) => {
-        const {
-            target: { value },
-        } = event
-        setEmail(value)
-    }
-    const handleSubmit = (event: FormEvent) => event.preventDefault()
-
-    const [isLoading, setIsLoading] = useState(false)
-    const handleClick = () => {
-        setIsLoading(true)
-        setTimeout(() => setIsLoading(false), 1000)
-    }
-
     return (
         <Box
             alignItems={Box.AlignItems.Center}
@@ -32,7 +13,8 @@ const Home: NextPage<Props> = () => {
             fluidHeight
             maxWidth={Box.Size.ContainerWidth}
             mx="auto"
-            pb={10}
+            pb={8}
+            px={7}
         >
             <Box>
                 <Box maxWidth={toRemString(400)} mb={5}>
@@ -47,51 +29,8 @@ const Home: NextPage<Props> = () => {
                         of their life.
                     </Text>
                 </Box>
-                <Box
-                    el={Box.Element.Form}
-                    mb={5}
-                    ml={5}
-                    onSubmit={handleSubmit}
-                >
-                    <Box mb={2}>
-                        <Field
-                            label="Email"
-                            type={Field.Type.Text}
-                            value={email}
-                            onChange={handleChange}
-                        />
-                    </Box>
-                    <Link
-                        href={{
-                            pathname: '/register',
-                            query: { email },
-                        }}
-                    >
-                        <button disabled={false} type="submit">
-                            Join
-                        </button>
-                    </Link>
-                    <Box mb={2} mt={5}>
-                        <Button
-                            block
-                            disabled={isLoading}
-                            fluid
-                            loading={isLoading}
-                            onClick={handleClick}
-                        >
-                            Sign Up
-                        </Button>
-                    </Box>
-                    <Button
-                        block
-                        disabled={isLoading}
-                        fluid
-                        loading={isLoading}
-                        variant={Button.Variant.Secondary}
-                        onClick={handleClick}
-                    >
-                        Sign Up
-                    </Button>
+                <Box maxWidth={toRemString(315)}>
+                    <EmailCapture />
                 </Box>
             </Box>
         </Box>

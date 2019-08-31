@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 // eslint-disable-next-line import/no-unresolved
 import Link from 'next/link'
 
-import { Box, Text, Field, Button } from '~/components'
+import { Box, Text, Field, Button, PasswordFeatures } from '~/components'
 import AppContext from '~/store/AppContext'
 
 interface Props {}
@@ -18,12 +18,12 @@ const Register: NextPage<Props> = () => {
     }
     const handleSubmit = (event: FormEvent) => event.preventDefault()
     return (
-        <Box>
-            <Box mb={2}>
-                <Text>Register an account</Text>
+        <Box fluidWidth maxWidth={Box.Size.AuthWidth} mx="auto" pt={10}>
+            <Box mb={1}>
+                <Text variant={Text.Variant.H4}>Register an account</Text>
             </Box>
-            <Box mb={2}>
-                <Text>
+            <Box mb={7}>
+                <Text color={Text.Color.Primary5} fontSize={Text.Size.Sm}>
                     Been here before?{' '}
                     <Link
                         href={{
@@ -36,14 +36,40 @@ const Register: NextPage<Props> = () => {
                 </Text>
             </Box>
             <Box el={Box.Element.Form} onSubmit={handleSubmit}>
-                <Box>
+                <Box mb={4}>
                     <Field
+                        autofocus
                         label="Email"
                         value={email}
                         onChange={handleChange}
                     />
                 </Box>
-                <Button>Sign Up</Button>
+                <Box mb={3}>
+                    <Box mb={2}>
+                        <Field label="Password" value="" onChange={() => {}} />
+                    </Box>
+                    <PasswordFeatures
+                        hasLowercaseLetter={false}
+                        hasNumber={false}
+                        hasUppercaseLetter={false}
+                        isMinLength={false}
+                    />
+                </Box>
+                <Box mb={4}>
+                    <Field
+                        label="Confirm Password"
+                        value=""
+                        onChange={() => {}}
+                    />
+                </Box>
+                <Button fluid>Sign Up</Button>
+                <Box mt={2}>
+                    <Text color={Text.Color.Primary5} fontSize={Text.Size.Xxs}>
+                        By signing up, you agree to the{' '}
+                        <a href="https://notion.com/tmm">Terms of Use</a> and{' '}
+                        <a href="https://notion.com/tmm">Privacy Policy</a>.
+                    </Text>
+                </Box>
             </Box>
         </Box>
     )
