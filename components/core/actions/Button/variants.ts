@@ -28,7 +28,6 @@ const commonVariant = {
     ':disabled': {
         cursor: 'not-allowed',
         opacity: 0.5,
-        pointerEvents: 'none',
         userSelect: 'none',
     },
 }
@@ -39,7 +38,7 @@ const variants = {
         backgroundColor: _Color.Color.Foreground,
         borderColor: _Color.Color.Foreground,
         color: _Color.Color.White,
-        ':hover': {
+        ':hover:enabled': {
             backgroundColor: _Color.Color.Primary8,
         },
     },
@@ -48,7 +47,7 @@ const variants = {
         backgroundColor: _Color.Color.Background,
         borderColor: _Color.Color.Foreground,
         color: _Color.Color.Foreground,
-        ':hover': {
+        ':hover:enabled': {
             backgroundColor: _Color.Color.Primary1,
         },
     },
