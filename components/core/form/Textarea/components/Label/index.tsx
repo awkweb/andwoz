@@ -24,9 +24,9 @@ const StyledLabel = styled('label')((props: Props) =>
     }),
 )
 
-export const Label = (props: Props) => {
-    return <StyledLabel {...props}>{props.label}</StyledLabel>
-}
+export const Label = (props: Props) => (
+    <StyledLabel {...props}>{props.label}</StyledLabel>
+)
 
 Label.defaultProps = {
     error: false,

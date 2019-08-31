@@ -43,7 +43,7 @@ const StyledInput = styled('input')((props: StyledProps) =>
         position: _Position.Position.Relative,
         px: 4,
         py: 0,
-        transition: 'border-color 0.25s ease-in-out',
+        transition: 'border-color 250ms ease-in-out',
         width: '100%',
         ':focus': {
             borderColor: !!props.error

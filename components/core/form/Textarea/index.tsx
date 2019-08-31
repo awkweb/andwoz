@@ -39,7 +39,7 @@ const StyledInput = styled('textarea')((props: StyledProps) =>
         position: _Position.Position.Relative,
         px: 3,
         py: 2,
-        transition: 'border-color 0.25s ease-in-out',
+        transition: 'border-color 250ms ease-in-out',
         width: '100%',
         ':focus': {
             borderColor: !!props.error
