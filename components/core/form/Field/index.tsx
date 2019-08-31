@@ -15,7 +15,6 @@ import { Label } from './components/Label'
 interface StyledProps {
     disabled: boolean
     error?: string
-    id: string
     onChange: (e: ChangeEvent<any>) => void
     type: _Attribute.InputType
     valid?: boolean
@@ -61,7 +60,6 @@ export const Field = ({
     autofocus,
     disabled,
     error,
-    id,
     label,
     onChange,
     type,
@@ -72,6 +70,10 @@ export const Field = ({
             onChange(e)
         }
     }
+    const id = label
+        .toLowerCase()
+        .split(' ')
+        .join('-')
     const active = !!value || !!error
     const labelProps = { active, error, label, htmlFor: id }
     const inputProps = {

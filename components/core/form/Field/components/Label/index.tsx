@@ -7,16 +7,16 @@ import * as _Typography from '../../../../../types/typography'
 
 interface StyledProps {
     active?: boolean
-}
-
-interface Props extends StyledProps {
     error?: string
-    label: string
     htmlFor: string
     theme?: any
 }
 
-const StyledLabel = styled('label')((props: Props) =>
+interface Props extends StyledProps {
+    label: string
+}
+
+const StyledLabel = styled('label')((props: StyledProps) =>
     css({
         backgroundImage: `linear-gradient(to bottom, ${props.theme.colors.background} 45%, ${props.theme.colors.white} 45%)`,
         color: !!props.error ? _Color.Color.Error : _Color.Color.Foreground,

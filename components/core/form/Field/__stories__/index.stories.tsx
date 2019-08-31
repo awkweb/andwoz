@@ -15,8 +15,7 @@ const TestWrapper = () => {
     return (
         <>
             <Field
-                id="email"
-                label="Email"
+                label="First Name"
                 type={Field.Type.Text}
                 value={email}
                 onChange={handleChange}
@@ -32,7 +31,6 @@ storiesOf('Form|Field', module)
             <Box mb={5}>
                 <Field
                     error="Email is invalid"
-                    id="email"
                     label="Email"
                     type={Field.Type.Text}
                     value="thom.meagher@gmailc.om"
@@ -41,7 +39,6 @@ storiesOf('Form|Field', module)
             </Box>
             <Field
                 error="Password is required"
-                id="password"
                 label="Password"
                 type={Field.Type.Password}
                 value=""
@@ -52,7 +49,6 @@ storiesOf('Form|Field', module)
     .add('autofocus', () => (
         <Field
             autofocus
-            id="email"
             label="Email"
             type={Field.Type.Text}
             value=""

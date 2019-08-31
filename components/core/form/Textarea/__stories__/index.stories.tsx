@@ -16,7 +16,7 @@ const TestWrapper = () => {
     return (
         <>
             <Textarea
-                id="interesting"
+                id="please"
                 label={label}
                 value={value}
                 onChange={handleChange}
@@ -30,7 +30,7 @@ storiesOf('Form|Textarea', module)
     .add('error', () => (
         <Textarea
             error
-            id="interesting"
+            id="please"
             label={label}
             value="The quick brown fox jumped over the lazy dogs."
             onChange={() => {}}
@@ -39,7 +39,7 @@ storiesOf('Form|Textarea', module)
     .add('autofocus', () => (
         <Textarea
             autofocus
-            id="interesting"
+            id="please"
             label={label}
             value=""
             onChange={() => {}}

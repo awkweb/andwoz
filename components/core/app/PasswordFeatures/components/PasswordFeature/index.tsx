@@ -34,9 +34,9 @@ const StyledDiv = styled('div')((props: StyledProps) =>
     }),
 )
 
-export const PasswordFeature = (props: Props) => (
+export const PasswordFeature = ({ feature, ...props }: Props) => (
     <StyledDiv {...props}>
-        <Text fontSize={Text.Size.Xxs}>{props.feature}</Text>
+        <Text fontSize={Text.Size.Xxs}>{feature}</Text>
     </StyledDiv>
 )
 

@@ -14,7 +14,7 @@ interface Props extends StyledProps {
     label: string
 }
 
-const StyledLabel = styled('label')((props: Props) =>
+const StyledLabel = styled('label')((props: StyledProps) =>
     css({
         color: props.error ? _Color.Color.Error : _Color.Color.Foreground,
         fontFamily: _Typography.Font.Body,
@@ -24,8 +24,8 @@ const StyledLabel = styled('label')((props: Props) =>
     }),
 )
 
-export const Label = (props: Props) => (
-    <StyledLabel {...props}>{props.label}</StyledLabel>
+export const Label = ({ label, ...props }: Props) => (
+    <StyledLabel {...props}>{label}</StyledLabel>
 )
 
 Label.defaultProps = {
