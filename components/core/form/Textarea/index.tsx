@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, RefObject } from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 
@@ -21,6 +21,7 @@ interface StyledProps {
 interface Props extends StyledProps {
     autofocus: boolean
     label: string
+    ref?: RefObject<any>
 }
 
 const StyledInput = styled('textarea')((props: StyledProps) =>
@@ -59,6 +60,7 @@ export const Textarea = ({
     id,
     label,
     onChange,
+    ref,
     value,
 }: Props) => {
     const handleChange = (e: ChangeEvent<any>) => {
@@ -77,6 +79,7 @@ export const Textarea = ({
         name: id,
         onChange: handleChange,
         spellCheck: false,
+        ref,
         rows: 8,
         value,
     }

@@ -29,7 +29,7 @@ const StyledInput = styled('input')(
         outline: 0,
         pb: 1,
         pl: 0,
-        pr: 7,
+        pr: 8,
         pt: 0,
         width: '100%',
         '::-webkit-input-placeholder': {
@@ -50,7 +50,8 @@ const StyledButton = styled('button')(
         fontWeight: _Typography.Weight.Medium,
         fontSize: _Typography.Size.Sm,
         outline: 0,
-        p: 0,
+        py: 0,
+        px: 2,
         position: _Position.Position.Absolute,
         right: 0,
         top: '0.3rem',
@@ -86,12 +87,8 @@ export const EmailCapture = (props: Props) => {
                     query: { email },
                 }}
             >
-                <StyledButton disabled={false} type="submit">
-                    Join
-                </StyledButton>
+                <StyledButton type="submit">Join</StyledButton>
             </Link>
         </Box>
     )
 }
-
-EmailCapture.defaultProps = {}

@@ -1,6 +1,7 @@
 {
     "name": "andwoz",
     "version": "1.0.0",
+    "license": "MIT",
     "scripts": {
         "build": "next build",
         "deploy": "now",
@@ -60,7 +61,6 @@
         "prettier": "^1.18.2",
         "typescript": "^3.5.3"
     },
-    "license": "MIT",
     "babel": {
         "presets": [
             "next/babel",

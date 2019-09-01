@@ -6,8 +6,8 @@ import * as _Position from '../../../../../types/position'
 import * as _Typography from '../../../../../types/typography'
 
 interface StyledProps {
-    active?: boolean
-    error?: string
+    active: boolean
+    error: string
     htmlFor: string
     theme?: any
 }

@@ -1,14 +1,17 @@
 import { useContext, FormEvent, ChangeEvent } from 'react'
 import { NextPage } from 'next'
-// eslint-disable-next-line import/no-unresolved
-import Link from 'next/link'
+import Link from 'next/link' // eslint-disable-line import/no-unresolved
 
 import { Box, Text, Field, Button, PasswordFeatures } from '~/components'
 import AppContext from '~/store/AppContext'
+import { useMount } from '~/lib/hooks/useMount'
+import { get } from '~/lib/get'
 
-interface Props {}
+interface Props {
+    query: any
+}
 
-const Register: NextPage<Props> = () => {
+const Register: NextPage<Props> = ({ query }) => {
     const { email, setEmail } = useContext(AppContext)
     const handleChange = (event: ChangeEvent<any>) => {
         const {
@@ -17,6 +20,11 @@ const Register: NextPage<Props> = () => {
         setEmail(value)
     }
     const handleSubmit = (event: FormEvent) => event.preventDefault()
+
+    useMount(() => {
+        setEmail(get(() => query.email, ''))
+    })
+
     return (
         <Box fluidWidth maxWidth={Box.Size.AuthWidth} mx="auto" pt={10}>
             <Box mb={1}>
@@ -66,13 +74,17 @@ const Register: NextPage<Props> = () => {
                 <Box mt={2}>
                     <Text color={Text.Color.Primary5} fontSize={Text.Size.Xxs}>
                         By signing up, you agree to the{' '}
-                        <a href="https://notion.com/tmm">Terms of Use</a> and{' '}
-                        <a href="https://notion.com/tmm">Privacy Policy</a>.
+                        <a href="https://notion.so/tmm">Terms of Use</a> and{' '}
+                        <a href="https://notion.so/tmm">Privacy Policy</a>.
                     </Text>
                 </Box>
             </Box>
         </Box>
     )
+}
+
+Register.getInitialProps = async ({ query }) => {
+    return { query }
 }
 
 export default Register

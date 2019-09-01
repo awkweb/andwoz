@@ -38,7 +38,7 @@ const colors = {
     [Color.Primary3]: 'hsl(109, 0%, 60%)',
     [Color.Primary2]: 'hsl(109, 0%, 83%)',
     [Color.Primary1]: 'hsl(109, 0%, 98%)',
-    [Color.Background]: 'hsl(42, 100%, 99%)',
+    [Color.Background]: 'hsl(104, 100%, 100%)',
     [Color.White]: 'hsl(104, 100%, 100%)',
     [Color.Error]: 'hsl(0, 100%, 50%)',
     [Color.Success]: 'hsl(163, 100%, 41%)',
@@ -67,7 +67,7 @@ const fontWeights = {
     [Typography.Weight.Normal]: 400,
 }
 const lineHeights = {
-    [Typography.LineHeight.Body]: 1.3,
+    [Typography.LineHeight.Body]: 1.35,
     [Typography.LineHeight.Title]: 1.08,
 }
 const radii = {

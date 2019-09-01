@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, RefObject } from 'react'
 import styled from '@emotion/styled'
 import css from '@styled-system/css'
 
@@ -24,6 +24,7 @@ interface StyledProps {
 interface Props extends StyledProps {
     autofocus: boolean
     label: string
+    ref?: RefObject<any>
 }
 
 const StyledInput = styled('input')((props: StyledProps) =>
@@ -62,6 +63,7 @@ export const Field = ({
     error,
     label,
     onChange,
+    ref,
     type,
     value,
 }: Props) => {
@@ -86,6 +88,7 @@ export const Field = ({
         onChange: handleChange,
         placeholder: active ? '' : label,
         spellCheck: false,
+        ref,
         type,
         value,
     }

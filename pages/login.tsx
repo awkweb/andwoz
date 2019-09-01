@@ -5,10 +5,14 @@ import Link from 'next/link'
 
 import { Box, Text, Field, Button } from '~/components'
 import AppContext from '~/store/AppContext'
+import { useMount } from '~/lib/hooks/useMount'
+import { get } from '~/lib/get'
 
-interface Props {}
+interface Props {
+    query: any
+}
 
-const Login: NextPage<Props> = () => {
+const Login: NextPage<Props> = ({ query }) => {
     const { email, setEmail } = useContext(AppContext)
     const handleChange = (event: ChangeEvent<any>) => {
         const {
@@ -17,6 +21,11 @@ const Login: NextPage<Props> = () => {
         setEmail(value)
     }
     const handleSubmit = (event: FormEvent) => event.preventDefault()
+
+    useMount(() => {
+        setEmail(get(() => query.email, ''))
+    })
+
     return (
         <Box fluidWidth maxWidth={Box.Size.AuthWidth} mx="auto" pt={10}>
             <Box mb={1}>
@@ -51,6 +60,10 @@ const Login: NextPage<Props> = () => {
             </Box>
         </Box>
     )
+}
+
+Login.getInitialProps = async ({ query }) => {
+    return { query }
 }
 
 export default Login

@@ -17,12 +17,12 @@ const Home: NextPage<Props> = () => {
             px={7}
         >
             <Box>
-                <Box maxWidth={toRemString(400)} mb={5}>
+                <Box maxWidth={toRemString(368)} mb={5}>
                     <Text el={Text.Element.H1} variant={Text.Variant.H1}>
                         Find a collaborator to build things together.
                     </Text>
                 </Box>
-                <Box maxWidth={toRemString(400)} mb={8}>
+                <Box maxWidth={toRemString(368)} mb={8}>
                     <Text el={Text.Element.P} variant={Text.Variant.Lead}>
                         &amp;Woz is a community of vetted designers and
                         engineers looking to find partners to do the best work
