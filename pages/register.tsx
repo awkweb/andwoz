@@ -1,11 +1,12 @@
-import { useContext, FormEvent, ChangeEvent } from 'react'
+import { ChangeEvent, FormEvent, useContext } from 'react'
+import Link from 'next/link'
 import { NextPage } from 'next'
-import Link from 'next/link' // eslint-disable-line import/no-unresolved
 
-import { Box, Text, Field, Button, PasswordFeatures } from '~/components'
+import { Box, Button, Field, PasswordFeatures, Text } from '~/components'
+
 import AppContext from '~/store/AppContext'
-import { useMount } from '~/lib/hooks/useMount'
 import { get } from '~/lib/get'
+import { useMount } from '~/lib/hooks/useMount'
 
 interface Props {
     query: any

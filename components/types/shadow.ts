@@ -1,3 +1,3 @@
-export enum BoxShadow {
+export enum Box {
     Button = 'button',
 }

@@ -27,7 +27,7 @@ module.exports = {
                 'newlines-between': 'always-and-inside-groups',
             },
         ],
-        'import/no-unresolved': ['error', { ignore: ['^~/'] }],
+        'import/no-unresolved': ['error', { ignore: ['^~/', '^next/'] }],
         'jsx-a11y/anchor-is-valid': 'off',
         'react/jsx-boolean-value': ['warn', 'never'],
         'react/no-array-index-key': 'error',
@@ -37,12 +37,23 @@ module.exports = {
         'react/prop-types': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/self-closing-comp': 'warn',
-        'react/jsx-sort-props': ['error', {
-            "callbacksLast": true,
-        }],
+        'react/jsx-sort-props': [
+            'error',
+            {
+                callbacksLast: true,
+            },
+        ],
         'react/jsx-wrap-multilines': 'error',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'warn',
+        'sort-imports': [
+            'warn',
+            {
+                ignoreCase: false,
+                ignoreDeclarationSort: true,
+                ignoreMemberSort: false,
+            },
+        ],
     },
     globals: {
         window: 'writable',

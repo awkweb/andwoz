@@ -1,9 +1,9 @@
 import React from 'react'
 
+import * as _Color from '../../../types/color'
+
 import { Box } from '../../layout/Box'
 import { Text } from '../../typography/Text'
-
-import * as _Color from '../../../types/color'
 
 interface Props {
     color: _Color.Color

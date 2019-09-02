@@ -1,9 +1,8 @@
-import { ReactNode, MouseEvent } from 'react'
-import styled from '@emotion/styled'
+import { MouseEvent, ReactNode } from 'react'
 import css from '@styled-system/css'
+import styled from '@emotion/styled'
 import { variant } from 'styled-system'
 
-import { Box } from '../../layout/Box'
 import * as _Attribute from '../../../types/attribute'
 import * as _Border from '../../../types/border'
 import * as _Color from '../../../types/color'
@@ -13,8 +12,9 @@ import * as _Size from '../../../types/size'
 import * as _Typography from '../../../types/typography'
 import * as _Variant from '../../../types/variant'
 
-import variants from './variants'
+import { Box } from '../../layout/Box'
 import { LoadingContent } from './components/LoadingContent'
+import variants from './variants'
 
 interface StyledProps {
     block: boolean

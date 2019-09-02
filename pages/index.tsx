@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 
+import { Box, EmailCapture, Text } from '~/components'
 import { toRemString } from '~/lib/toRemString'
-import { Box, Text, EmailCapture } from '~/components'
 
 interface Props {}
 

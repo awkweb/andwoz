@@ -1,17 +1,17 @@
 import React, { ReactNode } from 'react'
+import shouldForwardProp from '@styled-system/should-forward-prop'
 import styled from '@emotion/styled'
 import {
-    color,
-    margin,
     MarginProps,
     TextAlignProps,
     TextColorProps,
-    typography,
     TypographyProps,
-    variant,
+    color,
     compose,
+    margin,
+    typography,
+    variant,
 } from 'styled-system'
-import shouldForwardProp from '@styled-system/should-forward-prop'
 
 import * as _Color from '../../../types/color'
 import * as _Element from '../../../types/element'

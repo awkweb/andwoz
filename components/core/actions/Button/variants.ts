@@ -23,7 +23,7 @@ const commonVariant = {
     py: 0,
     whiteSpace: 'nowrap',
     ':focus': {
-        boxShadow: _Shadow.BoxShadow.Button,
+        boxShadow: _Shadow.Box.Button,
     },
     ':disabled': {
         cursor: 'not-allowed',

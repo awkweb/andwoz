@@ -1,13 +1,14 @@
 import { ChangeEvent, RefObject } from 'react'
-import styled from '@emotion/styled'
 import css from '@styled-system/css'
+import styled from '@emotion/styled'
 
-import { Box } from '../../layout/Box'
+import * as _Border from '../../../types/border'
 import * as _Color from '../../../types/color'
 import * as _Position from '../../../types/position'
 import * as _Size from '../../../types/size'
-import * as _Border from '../../../types/border'
 import * as _Typography from '../../../types/typography'
+
+import { Box } from '../../layout/Box'
 import { Label } from './components/Label'
 
 interface StyledProps {
